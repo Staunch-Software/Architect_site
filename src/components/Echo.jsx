@@ -7,7 +7,7 @@ import Image5 from "../assets/echoimg5.jpg";
 import Image6 from "../assets/echoimg6.jpg";
 import Image7 from "../assets/echoimg7.jpg";
 
-import VideoFile from "../assets/final video 1.MP4";
+import VideoFile from "../assets/final video 1.mp4";
 
 
 function Echo() {
