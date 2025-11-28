@@ -1,0 +1,69 @@
+
+
+.story-wrapper {
+  width: 100%;
+  padding-top:20px;
+  background: #000000;
+}
+  
+
+.story-title {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 80px;
+  color: #ffffff;
+}
+
+/* BLOCK */
+.story-section {
+  height: 80vh;
+  position: relative;
+}
+
+/* TITLE */
+.image-title {
+  width: 100%;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+/* LEFT IMAGE */
+.sticky-image-container {
+  display: none;
+ /* ❗ disabled because new wrapper takes over */
+}
+
+.sticky-image {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(255,255,255,0.1);
+}
+
+/* RIGHT TEXT */
+.story-text {
+  position: absolute;
+  right: 6%;
+  top: 20%;
+  width: 42%;
+  transform: translateY(-40%);
+}
+
+.story-text p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+
+.sticky-block {
+  position: sticky;
+  top: 100px;
+  left: 6%;
+  width: 38%;
+  z-index: 10;
+}
+
+/* Individual Image Styles */

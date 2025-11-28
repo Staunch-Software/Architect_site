@@ -1,0 +1,410 @@
+html,body{
+  overflow-x: hidden;
+}/* Scoped styles using .cascadia-container to avoid global bleeding */
+
+
+.cascadia-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 40px 60px;
+  /* Moved global body props here */
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #333;
+  line-height: 1.6;
+  gap:1rem; 
+}
+
+/* Animations - Scoped */
+@keyframes cascadiaSlideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cascadiaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cascadiaFloatIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.cascadia-container .title, 
+.cascadia-container .subtitle {
+  opacity: 0;
+}
+
+.cascadia-container .slide-in-active {
+  animation: cascadiaSlideIn 0.8s ease-out forwards;
+}
+
+.cascadia-container .fade-in-active {
+  animation: cascadiaFadeIn 1s ease-out forwards;
+}
+
+.cascadia-container .float-in-active {
+  animation: cascadiaFloatIn 0.8s ease forwards;
+}
+
+/* Header Section */
+.cascadia-container .header {
+  margin-bottom: 60px;
+}
+
+.cascadia-container .title {
+  font-size: 48px;
+  text-align: left;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #000;
+  margin-left:10%;
+}
+
+.cascadia-container .subtitle {
+   text-align: left;
+  font-size: 18px;
+  font-weight: 300;
+  color: #666;
+  letter-spacing: 1px;
+  margin-left: 10%;
+    
+}
+
+/* Main Content Section */
+.cascadia-container .main-content {
+  margin-bottom: 80px;
+}
+
+.cascadia-container .content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.cascadia-container .main-image-container {
+  width: 100%;
+  position: relative;
+  opacity: 0;
+  max-width: 800px;
+  max-height: 1000px;
+}
+
+.cascadia-container .main-image {
+  width: 100%;
+  height: 350%;
+  display: block;
+  margin-top:24%;
+  margin-right: 10%;
+  max-width:800px;
+  max-height: 1000px;
+ 
+}
+
+.cascadia-container .info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cascadia-container .description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+  text-align:justify;
+  opacity: 0;
+  margin-top: -10%;
+}
+
+.cascadia-container .description p {
+  
+ 
+  margin-right: 10%;
+}
+
+.cascadia-container .thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 70px;
+  margin-left: 10%;
+}
+
+.cascadia-container .thumbnail {
+  width: 70%;
+  height: 20%;
+  display: block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 5px;
+
+  margin-right: 40%;
+  opacity: 0;
+}
+
+.cascadia-container .thumbnail:hover {
+  transform: scale(1.02);
+}
+
+/* Design Process Section */
+.cascadia-container .design-process {
+  margin: 40px 0; 
+  padding: 0;
+}
+
+.cascadia-container .site-plan-container {
+  width: 100%;
+  opacity: 0;
+  margin-right: 10%;
+   
+
+}
+
+.cascadia-container .site-plan {
+  width: 80%;
+  max-width: 600px;
+  height: 80%;
+  display: block;
+  margin: 0 auto 20px auto;
+  margin-bottom: 3px;
+  margin-left: 10%;
+  margin-right: 50%;
+  margin-top: -10%;
+}
+
+.cascadia-container .process-diagrams {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+  width: 300%;
+  margin-left: 15%;
+  margin-bottom: 10px;
+}
+
+.cascadia-container .diagram-item {
+  text-align: center;
+  opacity: 0;
+}
+
+.cascadia-container .diagram-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Physical Model Section */
+.cascadia-container .model-section {
+  margin-bottom: 50px;
+  text-align: center;
+  opacity: 0;
+}
+
+.cascadia-container .model-image {
+  width: 90%;
+  max-width: 900px;
+  height: 50%;
+  margin-top: 20%;
+  margin-top:10px ;
+  
+}
+
+/* Site Details Section */
+.cascadia-container .site-details {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap:60px;
+  margin-bottom: 80px;
+  align-items: center;
+}
+
+.cascadia-container .site-plan-detailed {
+  width: 100%;
+  margin-left: 10%;
+  opacity: 0;
+  max-width: 700px;
+}
+
+.cascadia-container .detailed-plan {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left:20%;
+
+ 
+}
+
+.cascadia-container .spaces-diagram {
+  width: 100%;
+  opacity: 0;
+   margin-right: 50%;
+
+   
+}
+
+.cascadia-container .wheel-diagram {
+  width: 90%;
+  height: 60%;
+  display: block;
+  margin-top:-15%;
+  
+  
+ 
+}
+
+/* Floor Plans Section */
+.cascadia-container .floor-plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+.cascadia-container .plans-container {
+  width: 100%;
+  opacity: 0;
+}
+
+.cascadia-container .floor-plan-image {
+  width: 85%;
+  height: 80%;
+  display: block;
+  margin-bottom: 10%;
+  margin-left: 20%;
+}
+.p1{
+  margin-top:40%;
+}
+
+.cascadia-container .program-text {
+  font-size: 15px;
+  line-height: 1.8;
+
+  color:black;
+  text-align: justify;
+  opacity: 0;
+  margin-top: 120px;
+  line-width:1.6;
+
+}
+
+/* Wrapper for each paragraph — now you can edit space individually */
+.para-wrap {
+  margin-bottom: 40px;
+ 
+    margin-right:30%;
+}
+
+/* Individual control */
+.para-1 {
+  margin-top:-4%;
+  margin-right:30%;
+}
+
+.para-2 {
+  margin-top: -2%;
+}
+
+.para-3 {
+  margin-top:-4%
+}
+.para-4 {
+  margin-top:9%;
+  margin-bottom: -5%;
+}
+
+
+/* Elevations Section */
+.cascadia-container .elevations {
+  margin-bottom: 40px;
+}
+
+.cascadia-container .elevation-image {
+  width: 70%;
+  height: 50%;
+  display: block;
+  margin-bottom: 30px;
+  margin-left:17% ;
+
+  opacity: 0;
+}
+
+
+.cascadia-container .section-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cascadia-container {
+    padding: 40px 50px;
+  }
+
+  .cascadia-container .content-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 600px;
+  
+
+
+  }
+
+  .cascadia-container .site-details,
+  .cascadia-container .floor-plans {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  
+  }
+
+  .cascadia-container .process-diagrams {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cascadia-container {
+    padding: 30px 20px;
+  }
+
+  .cascadia-container .title {
+    font-size: 36px;
+  }
+
+  .cascadia-container .subtitle {
+    font-size: 16px;
+  }
+
+  .cascadia-container .thumbnails {
+    grid-template-columns: 1fr;
+  }
+
+  .cascadia-container .process-diagrams {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .cascadia-container .title {
+    font-size: 28px;
+  }
+
+  .cascadia-container .subtitle {
+    font-size: 14px;
+  }
+
+  .cascadia-container .description,
+  .cascadia-container .program-text {
+    font-size: 14px;
+  }
+}

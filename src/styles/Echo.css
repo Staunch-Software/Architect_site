@@ -1,0 +1,399 @@
+/* ----------------------------------------------------
+   MAIN PAGE WRAPPER
+---------------------------------------------------- */
+html, body {
+  overflow-x: hidden;
+}
+
+.echo-page {
+  width: 100%;
+  padding: 40px 6%;
+  font-family: "Inter", sans-serif;
+  background-color: white;
+}
+
+/* ----------------------------------------------------
+   ANIMATIONS
+---------------------------------------------------- */
+@keyframes echoFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes echoReveal { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes echoSlideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.echo-page .echo-fade-in { opacity: 0; }
+.echo-page .echo-fade-in.echo-fade-in-active { animation: echoFadeIn 1s ease forwards; }
+
+.echo-page .echo-reveal { opacity: 0; transform: scale(0.8); }
+.echo-page .echo-reveal.echo-reveal-active { animation: echoReveal 0.8s ease forwards; }
+
+.echo-page .echo-slide-up { opacity: 0; transform: translateY(50px); }
+.echo-page .echo-slide-up.echo-slide-up-active { animation: echoSlideUp 0.8s ease forwards; }
+
+/* ----------------------------------------------------
+   TITLE
+---------------------------------------------------- */
+.echo-title-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+  color: black;
+  margin-top: 8%;
+  margin-left: 13%;
+}
+
+.echo-subtitle {
+  font-size: 1.2rem;
+  color: black;
+  margin-top: 5px;
+  text-align: left;
+  margin-left: 13%;
+}
+
+/* ----------------------------------------------------
+   DESCRIPTION
+---------------------------------------------------- */
+.echo-description {
+  max-width: 460px;
+  margin: -40px auto 0 auto;
+  line-height: 1.7;
+  color: black;
+  font-size: 1rem;
+  text-align: justify;
+  margin-right: 24%;
+  margin-bottom: 50px;
+}
+
+/* ----------------------------------------------------
+   VIDEO
+---------------------------------------------------- */
+.echo-video-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.echo-video {
+  width: 100%;
+  max-width: 950px;
+  border-radius: 0px;
+  margin-right: 12%;
+}
+
+/* ----------------------------------------------------
+   HOVER IMAGE SLIDER
+---------------------------------------------------- */
+.echo-slider-container {
+  position: relative;
+  width: 63%;
+  height: 540px;
+  margin: 40px auto;
+  overflow: hidden;
+  margin-right: 24.5%;
+  margin-top: 70px;
+}
+
+/* Individual slide wrapper */
+.echo-slide {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  opacity: 0;
+  animation: fadeImageWithPointer 24s infinite;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.echo-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Caption overlay - HIDDEN by default */
+.echo-slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%);
+  padding: 20px 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.echo-slide-caption p {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+  letter-spacing: 0.3px;
+}
+
+/* SHOW caption on hover */
+.echo-slide:hover .echo-slide-caption {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Pause animation on hover */
+.echo-slide:hover {
+  animation-play-state: paused;
+}
+
+/* 6 IMAGES → each needs delay */
+.echo-slide-1 { animation-delay: 0s; }
+.echo-slide-2 { animation-delay: 4s; }
+.echo-slide-3 { animation-delay: 8s; }
+.echo-slide-4 { animation-delay: 12s; }
+.echo-slide-5 { animation-delay: 16s; }
+.echo-slide-6 { animation-delay: 20s; }
+
+/* Fade Keyframes with pointer events control */
+@keyframes fadeImageWithPointer {
+  0%   { 
+    opacity: 1;
+    pointer-events: auto;
+  }
+  12%  { 
+    opacity: 1;
+    pointer-events: auto;
+  }
+  14%  { 
+    opacity: 0;
+    pointer-events: none;
+  }
+  100% { 
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* ----------------------------------------------------
+   CAROUSEL MODAL
+---------------------------------------------------- */
+.carousel-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  cursor: pointer;
+}
+
+.carousel-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+/* Close Button */
+.carousel-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+  z-index: 10001;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+.carousel-close:hover {
+  transform: scale(1.2);
+}
+
+/* Main Carousel Container */
+.carousel-main {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Counter - HIDDEN */
+.carousel-counter {
+  display: none;
+}
+
+/* Caption Overlay at Bottom */
+.carousel-caption-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%);
+  color: white;
+  padding: 30px;
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  z-index: 10;
+  line-height: 1;
+  padding: 0;
+}
+
+.carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.carousel-prev {
+  left: -80px;
+}
+
+.carousel-next {
+  right: -80px;
+}
+
+/* Thumbnail Dots */
+.carousel-dots {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: white;
+  transform: scale(1.3);
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE DESIGN
+---------------------------------------------------- */
+@media (max-width: 1024px) {
+  .carousel-prev {
+    left: 10px;
+  }
+  
+  .carousel-next {
+    right: 10px;
+  }
+  
+  .carousel-arrow {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .echo-title-section h1 {
+    font-size: 1.5rem;
+    margin-left: 5%;
+  }
+
+  .echo-subtitle {
+    font-size: 1rem;
+    margin-left: 5%;
+  }
+
+  .echo-description {
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 90%;
+  }
+
+  .echo-video {
+    margin-right: 0;
+  }
+
+  .echo-slider-container {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .carousel-close {
+    font-size: 40px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .carousel-caption-overlay {
+    font-size: 0.9rem;
+    padding: 20px;
+  }
+  
+  .carousel-arrow {
+    font-size: 30px;
+  }
+}

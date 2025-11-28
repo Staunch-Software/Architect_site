@@ -1,0 +1,185 @@
+/* --- portfolio.css --- */
+
+.portfolio-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background-color: #F1F3E0;
+  min-height: 100vh;
+}
+
+/* 
+   HEADER ANIMATION 
+   Uses the same smooth easing as the cards
+*/
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.portfolio-title {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #000000;
+  letter-spacing: -1px;
+}
+
+.portfolio-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* 
+   --- SCROLL REVEAL ANIMATION ---
+   Extracted from Wix Studio (Thunderbolt Engine)
+   This replaces the bouncy 'popIn' with a premium smooth slide.
+*/
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80px); /* Starts lower down */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-card {
+  position: relative;
+  border-radius: 0px; /* Wix uses sharp corners. Change to 12px for rounded. */
+  overflow: hidden;
+  cursor: pointer;
+  
+  /* Initial State: Hidden */
+  opacity: 0; 
+  
+  /* 
+     Note: We removed the transition on 'transform' for the container 
+     to prevent conflict with the entry animation.
+  */
+}
+
+/* 
+   Triggered by React IntersectionObserver 
+   Duration: 1.2s | Easing: Custom Bezier (Starts fast, ends very slow)
+*/
+.portfolio-card.loaded {
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  /* 
+     HOVER TRANSITION SETTINGS
+     Timing: 0.5s 
+     Easing: Ease-in-out
+  */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease;
+  will-change: transform;
+}
+
+/* 
+   --- HOVER EFFECT ---
+   Matches the reference site: 
+   The card stays still, only the image zooms slightly (5%).
+*/
+.portfolio-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+}
+
+.portfolio-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-content {
+  /* Text slides up slightly on hover */
+  transform: translateY(20px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover .card-content {
+  transform: translateY(0);
+}
+
+.card-category {
+  display: inline-block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+}
+
+/* Lazy Loading Image Fade-in */
+.card-image.lazy {
+  opacity: 0;
+}
+
+.card-image.lazy.loaded {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-title {
+    font-size: 2.5rem;
+  }
+  
+  .card-image-wrapper {
+    height: 300px;
+  }
+}

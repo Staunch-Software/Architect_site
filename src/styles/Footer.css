@@ -1,0 +1,175 @@
+/* =========================================
+   ANIMATIONS
+========================================= */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.slide-up.slide-up-active {
+  animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes lineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* =========================================
+   FOOTER STYLES
+========================================= */
+.footer {
+  background: linear-gradient(180deg, #2a1f3d 0%, #1a1428 100%);
+  color: #ffffff;
+  padding: 2rem;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-line {
+  width: 0;
+  height: 2px;
+  background: #2BCCAB;
+  margin-bottom: 3rem;
+}
+
+.footer-line.line-active {
+  animation: lineExpand 1.2s ease forwards;
+}
+
+.footer-top {
+  margin-bottom: 2.5rem;
+}
+
+.footer-heading {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-cta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+  width: fit-content;
+  transition: transform 0.3s ease;
+}
+
+.footer-cta:hover {
+  transform: translateX(10px);
+}
+
+.footer-cta:hover .arrow-icon {
+  animation: arrowBounce 0.6s ease infinite;
+}
+
+.cta-text {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2BCCAB 0%, #20a88a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+.arrow-icon {
+  width: 80px;
+  height: 80px;
+  color: #2BCCAB;
+  transition: transform 0.3s ease;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link:hover {
+  color: #2BCCAB;
+  transform: translateY(-3px);
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2BCCAB;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.copyright {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.footer-note {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.highlight {
+  color: #2BCCAB;
+  font-weight: 500;
+}
