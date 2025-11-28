@@ -147,20 +147,7 @@ const AboutSection = () => {
             >
               Passionate for any forms of Design, with a focus on User-Centered, thoughtful and sustainable solutions. I strive to create experiences that are meaningful, accessible, and built to endure. Click to know more about me and my design process.
             </p>
-            <div className="home-about-buttons">
-              <button
-                ref={btn1Ref}
-                className={`home-about-btn ${btn1Visible ? 'fade-in-visible' : ''}`}
-              >
-                About me
-              </button>
-              <button
-                ref={btn2Ref}
-                className={`home-about-btn home-about-btn-delay ${btn2Visible ? 'fade-in-visible' : ''}`}
-              >
-                See My Design Process
-              </button>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -173,37 +160,37 @@ const sections = [
   {
     id: "project-1",
     img: img1,
-    title: "Leaf-Life HUB",
-    text: "leaf-life hub is a food recycling center committed to regeneration. by collecting and processing food waste from restaurants and residents, it transforms discarded materials into nutrient-rich fertilizers that help restore soil and support local agriculture.",
-    style: { height: "350px", width: "90%" }
+    title: " Holistic Retreat",
+    text: "This project explores the challenges new mothers face during the postpartum period and focus on designing a postpartum and rejuvenation center for new mothers and their infants. The facility will support postpartum recovery by offering a nurturing space that promotes both physical healing and mental relaxation.",
+    style: { height: "350px", width: "100%" }
   },
   {
     id: "project-2",
     img: img2,
-    title: "Echo and Embrace",
-    text: "The form of the building embraces soft curves, natural textures, and open spatial planning to evoke calmness and balance. Nature is integrated as a core element—not an addition—transforming the center into a living sanctuary where each space supports mindfulness, relaxation, and rejuvenation.",
-    style: { height: "350px", width: "90%" }
+    title: "Leaf-Life Hub",
+    text: "leaf-life hub is a food recycling center committed to regeneration. by collecting and processing food waste from restaurants and residents, it transforms discarded materials into nutrient-rich fertilizers that help restore soil and support local agriculture. this effort creates a closed-loop system where recycled resources are continuously used to grow fresh food, reducing waste and strengthening community sustainability.",
+    style: { height: "350px", width: "100%" }
   },
   {
     id: "project-3",
     img: img3,
-    title: "Concrete",
-    text: "Concrete is a versatile architectural material valued for its strength, durability, and sculptural flexibility. It allows architects to create bold structural forms, clean lines, and seamless surfaces while offering excellent thermal mass and long-term resilience.",
-    style: { height: "350px", width: "90%",margintop:"50%" }
+    title: "Echo to Embrace",
+    text: "The form of the building embraces soft curves, natural textures, and open spatial planning to evoke calmness and balance. Nature is integrated as a core element—not an addition—transforming the center into a living sanctuary where each space supports mindfulness, relaxation, and rejuvenation.",
+    style: { height: "350px", width: "100%",margintop:"50%" }
   },
   {
     id: "project-4",
     img: img4,
-    title: "Wellness Center",
-    text: "A Wellness Center is designed as a restorative architectural environment that promotes physical, emotional, and mental well-being. Through natural materials, soft lighting, and calming spatial flow, it creates a sanctuary where users can unwind, rejuvenate, and reconnect with themselves.",
-    style: { height: "350px", width: "85%" }
+    title: "Cascadia",
+    text: "Nestled in Halletâ€™s Point of Astoria, this design aims to provide residents with a dynamic living experience, having access to outdoor space and circulation to easily move throughout the building. By creating a unique façade on the street, it encourages viewers to come into the project, taking in the inner courtyard and cascading terraces of the residential units.",
+    style: { height: "350px", width: "100%" }
   },
   {
     id: "project-5",
     img: img5,
-    title: "Cascadia",
-    text: "Nestled in Hallets Point of Astoria this design aims to provide residents with a dynamic living experience having access to outdoor space and circulation to easily move throughout the building As the site continues a landscape appears connecting the site to the river an looking onto Randalls Island Field ",
-    style: { height: "350px", width: "95%" }
+    title: "Concrete",
+    text: "When specified for architectural applications, concrete is crafted with heightened attention to texture, color uniformity, joint layout, formwork precision, and surface finish. Techniques such as board-forming, polishing, sandblasting, acid etching, integral pigmentation, or exposed aggregate are employed to achieve the intended character—ranging from monolithic calm to expressive imprint.",
+    style: { height: "350px", width: "100%" }
   
   },
 ];
@@ -287,7 +274,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Hero Section - UPDATED CLASS NAME */}
+      {/* Hero Section */}
       <section ref={heroRef} className="home-hero-section hero-reveal">
         <div className="bg-circle bg-circle-1 floating-circle pulse-circle"></div>
         <div className="bg-circle bg-circle-2 floating-circle"></div>
