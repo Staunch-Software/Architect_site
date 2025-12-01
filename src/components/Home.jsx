@@ -43,18 +43,32 @@ const TextType = ({
   typingSpeed = 75,
   pauseDuration = 1500,
   showCursor = true,
-  cursorCharacter = "|"
+  cursorCharacter = "|",
+  onComplete,                   // ✅ NEW PROP
 }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(true);
+  const [hasCompleted, setHasCompleted] = useState(false); // ✅ NEW STATE
 
   useEffect(() => {
     const textArray = Array.isArray(text) ? text : [text];
     const fullText = textArray[currentTextIndex] || '';
 
     let timeout;
+
+    // 🆕 If we've finished once, don't type/delete anymore
+    if (hasCompleted) {
+      return;
+    }
+
+    // ✅ When typing of full text is finished, call onComplete ONCE and stop
+    if (!hasCompleted && !isDeleting && currentText === fullText) {
+      if (onComplete) onComplete();
+      setHasCompleted(true);
+      return; // stop further typing / deleting
+    }
 
     if (!isDeleting && currentText === fullText) {
       timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
@@ -73,7 +87,7 @@ const TextType = ({
     }
 
     return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, currentTextIndex, text, typingSpeed, pauseDuration]);
+  }, [currentText, isDeleting, currentTextIndex, text, typingSpeed, pauseDuration, hasCompleted, onComplete]);
 
   useEffect(() => {
     if (!showCursor) return;
@@ -147,7 +161,6 @@ const AboutSection = () => {
             >
               Passionate for any forms of Design, with a focus on User-Centered, thoughtful and sustainable solutions. I strive to create experiences that are meaningful, accessible, and built to endure. Click to know more about me and my design process.
             </p>
-            
           </div>
         </div>
       </div>
@@ -159,39 +172,38 @@ const AboutSection = () => {
 const sections = [
   {
     id: "project-1",
-    img: img1,
-    title: " Holistic Retreat",
-    text: "This project explores the challenges new mothers face during the postpartum period and focus on designing a postpartum and rejuvenation center for new mothers and their infants. The facility will support postpartum recovery by offering a nurturing space that promotes both physical healing and mental relaxation.",
-    style: { height: "350px", width: "100%" }
+    img: img4,
+    title: "Holistic Reality",
+    text: "A Wellness Center is designed as a restorative architectural environment that promotes physical, emotional, and mental well-being. Through natural materials, soft lighting, and calming spatial flow, it creates a sanctuary where users can unwind, rejuvenate, and reconnect with themselves.",
+    style: { height: "350px", width: "85%" }
   },
   {
     id: "project-2",
-    img: img2,
-    title: "Leaf-Life Hub",
-    text: "leaf-life hub is a food recycling center committed to regeneration. by collecting and processing food waste from restaurants and residents, it transforms discarded materials into nutrient-rich fertilizers that help restore soil and support local agriculture. this effort creates a closed-loop system where recycled resources are continuously used to grow fresh food, reducing waste and strengthening community sustainability.",
-    style: { height: "350px", width: "100%" }
+    img: img1,
+    title: "Leaf-Life HUB",
+    text: "leaf-life hub is a food recycling center committed to regeneration. by collecting and processing food waste from restaurants and residents, it transforms discarded materials into nutrient-rich fertilizers that help restore soil and support local agriculture.",
+    style: { height: "350px", width: "90%" }
   },
   {
     id: "project-3",
-    img: img3,
-    title: "Echo to Embrace",
-    text: "The form of the building embraces soft curves, natural textures, and open spatial planning to evoke calmness and balance. Nature is integrated as a core element—not an addition—transforming the center into a living sanctuary where each space supports mindfulness, relaxation, and rejuvenation.",
-    style: { height: "350px", width: "100%",margintop:"50%" }
+    img: img5,
+    title: "Cascadia",
+    text: "Nestled in Hallets Point of Astoria this design aims to provide residents with a dynamic living experience having access to outdoor space and circulation to easily move throughout the building As the site continues a landscape appears connecting the site to the river an looking onto Randalls Island Field ",
+    style: { height: "350px", width: "95%" }
   },
   {
     id: "project-4",
-    img: img4,
-    title: "Cascadia",
-    text: "Nestled in Halletâ€™s Point of Astoria, this design aims to provide residents with a dynamic living experience, having access to outdoor space and circulation to easily move throughout the building. By creating a unique façade on the street, it encourages viewers to come into the project, taking in the inner courtyard and cascading terraces of the residential units.",
-    style: { height: "350px", width: "100%" }
+    img: img2,
+    title: "Echo and Embrace",
+    text: "The form of the building embraces soft curves, natural textures, and open spatial planning to evoke calmness and balance. Nature is integrated as a core element—not an addition—transforming the center into a living sanctuary where each space supports mindfulness, relaxation, and rejuvenation.",
+    style: { height: "350px" }
   },
   {
     id: "project-5",
-    img: img5,
+    img: img3,
     title: "Concrete",
-    text: "When specified for architectural applications, concrete is crafted with heightened attention to texture, color uniformity, joint layout, formwork precision, and surface finish. Techniques such as board-forming, polishing, sandblasting, acid etching, integral pigmentation, or exposed aggregate are employed to achieve the intended character—ranging from monolithic calm to expressive imprint.",
-    style: { height: "350px", width: "100%" }
-  
+    text: "Concrete is a versatile architectural material valued for its strength, durability, and sculptural flexibility. It allows architects to create bold structural forms, clean lines, and seamless surfaces while offering excellent thermal mass and long-term resilience.",
+    style: { height: "350px", width: "90%", margintop: "50%" }
   },
 ];
 
@@ -211,7 +223,6 @@ const ScrollBlock = ({ sec }) => {
 
   return (
     <div className="story-section" ref={ref}>
-
       {/* TITLE + IMAGE FIXED TOGETHER */}
       <motion.div
         className="sticky-block"
@@ -255,6 +266,9 @@ const Home = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const heroRef = useRef(null);
 
+  // ✅ NEW STATE to control when "Architecture Designer" shows
+  const [showJobTitle, setShowJobTitle] = useState(false);
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (heroRef.current) {
@@ -274,7 +288,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Hero Section */}
+      {/* Hero Section - UPDATED CLASS NAME */}
       <section ref={heroRef} className="home-hero-section hero-reveal">
         <div className="bg-circle bg-circle-1 floating-circle pulse-circle"></div>
         <div className="bg-circle bg-circle-2 floating-circle"></div>
@@ -293,12 +307,20 @@ const Home = () => {
           <div className="hero-content">
             <h1 className="hero-title">
               <span className="greeting text-reveal">
-                <TextType
-                  text={["Hi, I'm Sehba Hussaina\nArchitecture  Designer"]}
-                  typingSpeed={60}
-                  pauseDuration={1500}
-                  showCursor={false}
-                />
+                <div className="hero-title-block">
+                  <TextType
+                    text={["Hi, I'm Sehba Hussaina"]}
+                    typingSpeed={150}
+                    pauseDuration={1500}
+                    showCursor={false}
+                    onComplete={() => setShowJobTitle(true)}  // ✅ SHOW TITLE AFTER TYPING
+                  />
+                  {showJobTitle && (
+                    <div className="job-title slide-up">
+                      Architecture Designer
+                    </div>
+                  )}
+                </div>
               </span>
             </h1>
           </div>

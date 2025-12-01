@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/wellness.css";
+import ProjectNavigation from "./ProjectNavigation";
+
+
+
 
 /* -----------------------------------------
    IMPORT IMAGES
@@ -10,6 +14,7 @@ import heroMain from "../assets/wellness-hero-main.jpg";
 import heroSide1 from "../assets/wellness-hero-side1.jpg";
 import heroSide2 from "../assets/wellness-hero-side2.jpg";
 import heroSide3 from "../assets/wellness-hero-side3.jpg";
+import hero from "../assets/wellness-hero.jpg";
 
 // COMBINED IMAGES
 import mapCombined from "../assets/wellness-map-combined.jpg";
@@ -72,10 +77,16 @@ import gallery6 from "../assets/wellness-gallery6.jpg";
 
 import finalSectionImg from "../assets/wellness-final-section.jpg";
 
+
+
+
 const Wellness = () => {
   const [visibleElements, setVisibleElements] = useState({});
   const observerRef = useRef(null);
 
+  /* --------------------------------------------------------
+     1️⃣  INTERSECTION OBSERVER EFFECT (Your original)
+  ---------------------------------------------------------*/
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -95,11 +106,39 @@ const Wellness = () => {
     elements.forEach((el) => observerRef.current.observe(el));
 
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
+      if (observerRef.current) observerRef.current.disconnect();
     };
   }, []);
+
+  /* --------------------------------------------------------
+   CORRIDOR BIG IMAGE SLIDER
+---------------------------------------------------------*/
+
+const corridorImages = [
+  { src: gallery1, caption: "Entire pathways in the site are covered with mashrabiya screening which gives them abundant shading adding to the elongated roof of the building. Users can stroll through with their infants as well as family without the harsh heat hitting on them. " },
+  { src: gallery2, caption: "Multiple water bodies are given from fountains to small water ponds to outlets for the micro climate. There are seatings given throughout the site so at any point a user can sit down and rest if necessary. This also helps with bonding with other users due to its proximity." },
+  { src: gallery3, caption: "The Private sand deck also has a water body mimicking the existing beach but in a more private manner.These spaces can be used by users to relax and multile shadings are provided for the heat in Muscat. The portion is elevated for a better privacy from the people walking in the existing pathway around the site and for better view." },
+  { src: gallery4, caption: "Hammams or public baths is a very middle eastern culture which is incorporated as a relaxtion space and it makes sure it does not reduce the privacy as well have the beach as the view with the openings." },
+  { src: gallery5, caption: "There is a outdoor cafe seating for the users which has a good shading as well in the sunken area to enjoy the quiet atmosphere. " },
+  { src: heroSide1, caption: "The entire site has abundant shading for the users to walk very comfrotably and the site has a lot of levels which can be accessed through stairs as well as ramps making it accessible for all." }
+];
+
+
+const [corridorIndex, setCorridorIndex] = useState(0);
+
+const nextCorridor = () => {
+  const newIndex = (corridorIndex + 1) % corridorImages.length;
+  setCorridorIndex(newIndex);
+};
+
+const prevCorridor = () => {
+  const newIndex =
+    (corridorIndex - 1 + corridorImages.length) % corridorImages.length;
+  setCorridorIndex(newIndex);
+};
+
+
+  
 
   return (
     <div className="wellness-page">
@@ -132,6 +171,9 @@ const Wellness = () => {
           </div>
         </div>
 
+        {/* BIG CORRIDOR IMAGE NOW FOLLOWS THIS */}
+
+
         <div className="hero-right">
           <p>The journey into motherhood is often romanticized, yet the reality can be far more complex and challenging. Recent research reveals that one in three women report experiencing lasting health problems after giving birth highlighting the often-overlooked physical and mental challenges faced by many mothers in the postpartum period. These challenges encompass not only the physical toll of childbirth but also emotional, psychological, and social dimensions that can severely impact mental health.
 This project explores the challenges new mothers face during the postpartum period and focus on designing a postpartum and rejuvenation center for new mothers and their infants. The facility will support postpartum recovery by offering a nurturing space that promotes both physical healing and mental relaxation. Through innovative design and holistic care, integrating principles from
@@ -142,18 +184,23 @@ By focusing on their physical fitness, mental relaxation, and overall wellness w
         </div>
       </div>
 
-      {/* HERO STRIP */}
-      <div 
-        className={`wellness-gallery-row ${visibleElements["galleryRow"] ? "float-in-active" : ""}`}
-        data-animate-id="galleryRow"
-      >
-        <div className="gallery-main"><img src={heroMain} alt="" /></div>
-        <div className="gallery-side">
-          <img src={heroSide1} alt="" />
-          <img src={heroSide2} alt="" />
-          <img src={heroSide3} alt="" />
-        </div>
-      </div>
+    
+{/* HERO STRIP (FINAL LAYOUT: 1 BIG LEFT + 3 BIG RIGHT) */}
+<div
+  className={`hero-strip-final ${visibleElements["galleryRow"] ? "float-in-active" : ""}`}
+  data-animate-id="galleryRow"
+>
+  <div className="hero-strip-final-left">
+    <img src={hero} alt="" />
+  </div>
+
+  <div className="hero-strip-final-right">
+    <img src={heroSide1} alt="" />
+    <img src={heroSide2} alt="" />
+    <img src={heroMain} alt="" />
+  </div>
+</div>
+
 
       {/* PROBLEM & SITE */}
       <div 
@@ -320,8 +367,11 @@ Climate-responsive strategies, such as strategic shading techniques, passive coo
         <div className="exploded-wrapper">
           <img className="exploded-img" src={explodedView} alt="Exploded View" />
           <div className="floor-stack">
-            <img className="floor-img" src={floor1} alt="Floor 1" />
-            <img className="floor-img" src={floor2} alt="Floor 2" />
+            <img className="floor1-img" src={floor1} alt="Floor 1" />
+             <div className="floor">
+            <img src={floor2} alt="" />
+            <p>The corridors were intentionally designed as nodes of interaction, encouraging spontaneous encounters and fostering a sense of community. These transitional spaces promote parallel learning, where individuals—especially mothers and families—can observe, learn from, and support one another.</p>
+          </div>
           </div>
         </div>
       </div>
@@ -332,15 +382,19 @@ Climate-responsive strategies, such as strategic shading techniques, passive coo
         data-animate-id="circles"
       >
         <div className="circles-grid">
-          <div className="circle-item">
+         <div className={`circle-item ${visibleElements["circles"] ? "circle-appear" : ""}`}>
+
+
             <img src={circle1} alt="" />
             <p>Strategic openings and sightlines ensure that users feel a comforting sense of connection while still maintaining personal privacy.This design approach fosters a sense of community, allowing for incidental interactions and visual connections between users—particularly beneficial for mothers and families. Such a layout encourages parallel learning, where individuals can observe and learn from one another in a natural, non-intrusive manner.</p>
           </div>
-          <div className="circle-item">
+        <div className={`circle-item ${visibleElements["circles"] ? "circle-appear" : ""}`}>
+
             <img src={circle2} alt="" />
             <p>The corridors were intentionally designed as nodes of interaction, encouraging spontaneous encounters and fostering a sense of community. These transitional spaces promote parallel learning, where individuals—especially mothers and families—can observe, learn from, and support one another.</p>
           </div>
-          <div className="circle-item">
+        <div className={`circle-item ${visibleElements["circles"] ? "circle-appear" : ""}`}>
+
             <img src={circle3} alt="" />
             <p>Beyond functionality, the layout with such connecting nodes nurtures emotional well-being by reducing feelings of isolation and encouraging shared experiences. It subtly reinforces the idea that others are navigating similar life journeys, which helps build a sense of mutual support and reassurance. In turn, this creates an inviting atmosphere for informal knowledge exchange and the formation of new friendships.</p>
           </div>
@@ -348,26 +402,68 @@ Climate-responsive strategies, such as strategic shading techniques, passive coo
       </div>
 
       {/* CORRIDOR */}
-      <div 
-        className={`wellness-section corridor-section ${visibleElements["corridor"] ? "float-in-active" : ""}`}
-        data-animate-id="corridor"
-      >
-        <div className="single-wide-image"><img src={corridorImg} alt="" /></div>
-      </div>
+      {/* CORRIDOR (BIG IMAGE SLIDER) */}
+<div 
+  className={`wellness-section corridor-section ${visibleElements["corridor"] ? "float-in-active" : ""}`}
+  data-animate-id="corridor"
+>
+  <div className="single-wide-image corridor-sync-container">
+
+    {/* LEFT BUTTON */}
+    <button className="slider-btn left" onClick={prevCorridor}>‹</button>
+
+   <div className="corridor-image-wrapper">
+
+  {/* Big image */}
+  <img 
+    src={corridorImages[corridorIndex].src} 
+    alt="" 
+    className="corridor-sync-img"
+  />
+
+  {/* Hover overlay */}
+  <div className="corridor-overlay"></div>
+
+  {/* Bottom-left caption (unique per image) */}
+  <div className="corridor-overlay-text">
+    {corridorImages[corridorIndex].caption}
+  </div>
+
+</div>
+
+
+
+    {/* RIGHT BUTTON */}
+    <button className="slider-btn right" onClick={nextCorridor}>›</button>
+
+  </div>
+</div>
+
 
       {/* GALLERY */}
       <div 
         className={`wellness-section gallery-strip ${visibleElements["gallery"] ? "float-in-active" : ""}`}
         data-animate-id="gallery"
       >
-        <div className="thumb-grid">
-          <img src={gallery1} alt="" />
-          <img src={gallery2} alt="" />
-          <img src={gallery3} alt="" />
-          <img src={gallery4} alt="" />
-          <img src={gallery5} alt="" />
-          <img src={gallery6} alt="" />
-        </div>
+        <div className="thumb-grid" id="infiniteThumbs">
+  <div className="thumb-track">
+    <img src={gallery1} alt="" />
+    <img src={gallery2} alt="" />
+    <img src={gallery3} alt="" />
+    <img src={gallery4} alt="" />
+    <img src={gallery5} alt="" />
+    <img src={gallery6} alt="" />
+
+    {/* DUPLICATED for infinite effect */}
+    <img src={gallery1} alt="" />
+    <img src={gallery2} alt="" />
+    <img src={gallery3} alt="" />
+    <img src={gallery4} alt="" />
+    <img src={gallery5} alt="" />
+    <img src={gallery6} alt="" />
+  </div>
+</div>
+
       </div>
 
       {/* FINAL SECTION */}
@@ -377,6 +473,9 @@ Climate-responsive strategies, such as strategic shading techniques, passive coo
       >
         <div className="single-wide-image"><img src={finalSectionImg} alt="" /></div>
       </div>
+
+      <ProjectNavigation />
+
 
     </div>
   );

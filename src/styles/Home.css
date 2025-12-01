@@ -1,5 +1,3 @@
-/* Keyframe Animations */
-
 @keyframes circularReveal {
   0% { clip-path: circle(0% at 50% 50%); }
   100% { clip-path: circle(150% at 50% 50%); }
@@ -39,19 +37,20 @@
 /* Home Container */
 .home-container {
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #000000;
   font-family: 'Butler', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Hero Section */
+/* Hero Section - RENAMED TO AVOID CONFLICT */
 .home-hero-section {
   position: relative;
-  /* min-height: 95vh; */
+  min-height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(90deg,rgba(173, 12, 141, 0.99) 0%, rgba(32, 3, 36, 1) 60%);
   padding: 8rem 4rem 4rem;
+  padding-top: 0rem;
   overflow: hidden;
 }
 
@@ -84,26 +83,25 @@
 
 /* Hero Content */
 .hero-content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 1400px;
-  align-items: center;
   position: relative;
   z-index: 2;
 }
 
-.hero-content { text-align: left; padding-left: 2rem; }
+.hero-content { text-align: center; }
 .hero-title { margin: 0; padding: 0; }
 .greeting { display: block; font-size: 3rem; font-weight: 500; color: #ffffff; margin-bottom: 1rem; }
-.hero-lanyard { width: 100%; height: 600px; position: relative; z-index: 1; }
+.hero-lanyard { width: 100%; height: 600px; display: none; }
 
 /* Home About Section */
 .home-about-section {
   background-color: #FFFDF7;
   color: #000000;
-  padding: 1rem 4rem 2rem;
+  padding: 0rem;
   min-height: auto;
   display: flex;
   align-items: center;
@@ -127,6 +125,7 @@
   line-height: 1.6;
   color: #000000;
   margin: 0;
+  margin-right: 10%;
   max-width: 1000px;
   opacity: 0;
   transform: translateX(-50px);
@@ -148,18 +147,18 @@
   animation: revealImage 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 
-.home-about-image { width: 400px; height: auto; object-fit: cover;margin-left: 20%; border-radius: 8px; display: block;transition: 0.4sec ease;filter: grayscale(100%); }
-.home-about-image:hover{filter: grayscale(0%);}
-
+.home-about-image { width: 360px; height: auto; object-fit: cover; border-radius: 8px;margin-left:10%; filter:grayscale(100%);transition: 0.4s ease; }
+.home-about-image:hover {
+  filter: grayscale(0%);
+}
 .home-about-bottom-right { display: flex; flex-direction: column; gap: 1.5rem; padding-left: 1rem; }
 
 .home-about-description {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.7;
   color: #000000;
   margin: 0;
   opacity: 0;
-  margin-right:10%;
   transform: translateX(-50px);
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
 }
@@ -191,26 +190,37 @@
   transform: translateY(-2px);
 }
 
-/* ========== PROJECTS SECTION STYLES ========== */
+/* ========== PROJECTS SECTION STYLES (Merged from Projects.css) ========== */
+/* 
+* {
+  overflow: visible !important;
+} */
 
 .story-wrapper {
   width: 100%;
-  padding-top: 20px;
+  padding-top: 80px;
   background: #000000;
 }
-
+  
 .story-title {
   text-align: center;
-  font-size: 35px;
+  font-size: 52px;
   font-weight: 800;
   margin-bottom: 80px;
   color: #ffffff;
 }
 
+/* Remove last white gap under featured projects */
+.story-wrapper .story-section:last-child {
+  margin-bottom: 0 !important;
+}
+
 /* BLOCK */
 .story-section {
-  height: 80vh;
+  height: 50vh;
   position: relative;
+  gap:10px;
+  margin-bottom: 40px;
 }
 
 /* TITLE */
@@ -220,18 +230,21 @@
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 15px;
-   text-align: center;
 }
 
 /* LEFT IMAGE */
 .sticky-image-container {
   display: none;
+  gap: 10px;
+  padding-top: 80px;
+  /* disabled because new wrapper takes over */
 }
 
 .sticky-image {
   width: 100%;
   border-radius: 24px;
   box-shadow: 0 12px 30px rgba(255,255,255,0.1);
+  margin-bottom: 10px;
 }
 
 /* RIGHT TEXT */
@@ -241,7 +254,6 @@
   top: 20%;
   width: 42%;
   transform: translateY(-40%);
- 
 }
 
 .story-text p {
@@ -259,6 +271,30 @@
 }
 
 /* ========== END PROJECTS SECTION STYLES ========== */
+.hero-title-block {
+  display: inline-block;
+}
+
+.job-title {
+  font-size: 2.6rem;
+  margin-top: 10px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUpSmooth 1s ease-out forwards;
+  animation-delay: 0.2s;   /* appears much faster */
+}
+
+@keyframes slideUpSmooth {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* Responsive */
 @media (max-width: 1024px) {

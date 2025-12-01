@@ -20,6 +20,7 @@ import Leaf16 from "../assets/leafimg16.jpg";
 import Leaf17 from "../assets/leafimg17.jpg";
 import Leaf18 from "../assets/leafimg18.jpg";
 import Leaf19 from "../assets/leafimg19.jpg";
+import Leaf20 from "../assets/leafimg20.jpg";
 import Leaf21 from "../assets/leafimg21.jpg";
 import Leaf22 from "../assets/leafimg22.jpg";
 import Leaf23 from "../assets/leafimg23.jpg";
@@ -36,6 +37,18 @@ import Leaf33 from "../assets/leafimg33.jpg";
 import Leaf34 from "../assets/leafimg34.jpg";
 import Leaf37 from "../assets/leafimg37.jpg";
 import Leaf36 from "../assets/leafimg36.jpg";
+import Leaf40 from "../assets/leafimg40.jpg";
+import Leaf41 from "../assets/leafimg41.jpg";
+import Leaf42 from "../assets/leafimg42.jpg";
+import Leaf43 from "../assets/leafimg43.jpg";
+import Leaf44 from "../assets/leafimg44.jpg";
+import Leaf45 from "../assets/leafimg45.jpg";
+import Leaf46 from "../assets/leafimg46.jpg";
+import Leaf47 from "../assets/leafimg47.jpg";
+import Leaf48 from "../assets/leafimg48.jpg";
+import Leaf51 from "../assets/leafimg51.jpg";
+import Leaf52 from "../assets/leafimg52.jpg";
+import Leaf53 from "../assets/leafimg53.jpg";
 
 export default function LeafLifeHub() {
   const technicalScrollRef = useRef(null);
@@ -145,7 +158,7 @@ export default function LeafLifeHub() {
         data-animate-id="processFlow"
       >
         <div className="content-wrapper">
-          <h2 className="section-label">WASTE BROUGHT INTO THE HUB</h2>
+          
 
           <div className="four-image-grid">
             <div className="grid-item">
@@ -178,7 +191,7 @@ export default function LeafLifeHub() {
                     <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
-                <div className="scroll-indicator">1/4</div>
+                
               </div>
             </div>
           </div>
@@ -187,6 +200,28 @@ export default function LeafLifeHub() {
 
       {/* 10 IMAGE STACK */}
       <div className="ten-images-stack">
+        <img 
+    src={Leaf46}
+    className={`stack-image ${visibleElements["stack0"] ? "float-in-active" : ""}`}
+    data-animate-id="stack0"
+    alt=""
+  />
+  <div className="stack-section">
+  <div className="stack-left">
+    <img 
+      src={Leaf48}
+      className={`stack-image ${visibleElements["stack0.5"] ? "float-in-active" : ""}`}
+      data-animate-id="stack0.5"
+      alt=""
+    />
+  </div>
+  
+  <div className="stack-right">
+    <p className="stack-text">
+      The building was designed with careful consideration of the user journey—whether for individuals working within the center or visitors using its facilities. The layout ensures an intuitive flow while protecting privacy, so that private areas such as the hostels remain discreet and not easily visible, all while maintaining an accessible and user friendly interface.
+    </p>
+  </div>
+</div>
         <img 
           src={Leaf7} 
           className={`stack-image ${visibleElements["stack1"] ? "float-in-active" : ""}`}
@@ -221,6 +256,12 @@ export default function LeafLifeHub() {
             />
           </div>
         </div>
+        <img 
+  src={Leaf42}
+  className={`stack-image ${visibleElements["stack1.5"] ? "float-in-active" : ""}`}
+  data-animate-id="stack1.5"
+  alt=""
+/>
         
         
         {/* 3rd Image with Permaculture Content */}
@@ -229,7 +270,7 @@ export default function LeafLifeHub() {
           data-animate-id="permaculture"
         >
           <div className="image-content-left">
-            <img src={Leaf29} className="stack-image" alt="" />
+            <img src={Leaf40} className="stack-image" alt="" />
           </div>
           <div className="image-content-right">
             <p className="permaculture-title">Permaculture zones</p>
@@ -327,9 +368,33 @@ export default function LeafLifeHub() {
           alt="" 
         />
         <img 
+          src={Leaf44} 
+          className={`stack-image ${visibleElements["stack11.5"] ? "float-in-active" : ""}`}
+          data-animate-id="stack11.5"
+          alt="" 
+        />
+        <img 
+          src={Leaf47} 
+          className={`stack-image ${visibleElements["stack12.5"] ? "float-in-active" : ""}`}
+          data-animate-id="stack12.5"
+          alt="" 
+        />
+        <img 
           src={Leaf28} 
           className={`stack-image ${visibleElements["stack12"] ? "float-in-active" : ""}`}
           data-animate-id="stack12"
+          alt="" 
+        />
+        <img 
+          src={Leaf41} 
+          className={`stack-image ${visibleElements["stack13"] ? "float-in-active" : ""}`}
+          data-animate-id="stack13"
+          alt="" 
+        />
+        <img 
+          src={Leaf43} 
+          className={`stack-image ${visibleElements["stack14"] ? "float-in-active" : ""}`}
+          data-animate-id="stack14"
           alt="" 
         />
       </div>
@@ -339,7 +404,7 @@ export default function LeafLifeHub() {
         className={`technical-section-wrapper ${visibleElements["technical"] ? "float-in-active" : ""}`}
         data-animate-id="technical"
       >
-        <h2 className="technical-title">Technical drawing</h2>
+       
 
         <div className="technical-scroll-wrapper">
           <button className="technical-scroll-btn technical-scroll-btn-left" onClick={scrollTechnicalLeft}>
@@ -349,12 +414,16 @@ export default function LeafLifeHub() {
           </button>
           <div className="technical-horizontal-scroll-container" ref={technicalScrollRef}>
             <img src={Leaf21} alt="Technical Drawing 1" className="technical-image" />
+            <img src={Leaf51} alt="Technical Drawing 2" className="technical-image" />
             <img src={Leaf22} alt="Technical Drawing 2" className="technical-image" />
-            <img src={Leaf23} alt="Technical Drawing 3" className="technical-image" />
+            <img src={Leaf53} alt="Technical Drawing 3" className="technical-image" />
+            <img src={Leaf52} alt="Technical Drawing 3" className="technical-image" />
+            <img src={Leaf20} alt="Technical Drawing 3" className="technical-image" />
+            
             <img src={Leaf24} alt="Technical Drawing 4" className="technical-image" />
             <img src={Leaf25} alt="Technical Drawing 5" className="technical-image" />
-            <img src={Leaf26} alt="Technical Drawing 6" className="technical-image" />
-            <img src={Leaf27} alt="Technical Drawing 7" className="technical-image" />
+           
+            <img src={Leaf23} alt="Technical Drawing 7" className="technical-image tech23" />
           </div>
           <button className="technical-scroll-btn technical-scroll-btn-right" onClick={scrollTechnicalRight}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

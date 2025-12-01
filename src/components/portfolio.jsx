@@ -81,7 +81,7 @@ const Portfolio = () => {
       <div className="portfolio-header">
         <h1 className="portfolio-title">My Projects</h1>
         <p className="portfolio-subtitle">
-          Welcome to my projects. Here you'll find a selection of my work. Explore my projects to learn more about what I do.
+           Explore my works to learn more about what I do.
         </p>
       </div>
 

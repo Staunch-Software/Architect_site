@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Cascadia.css';
+import ProjectNavigation from "./ProjectNavigation";
+
 
 // IMAGES
 import cascadia1 from '../assets/cascadia1.jpg';
@@ -228,17 +230,7 @@ const CascadiaWebsite = () => {
         />
       </section>
       {/* --------------------------- PAGE NAVIGATION BUTTONS --------------------------- */}
-      <section className="echo-page-navigation-1">
-  <button className="echo-page-nav-btn echo-prev-page prev-btn-unique">
-    <span>‹</span>
-  </button>
-</section>
-
-<section className="echo-page-navigation-1">
-  <button className="echo-page-nav-btn echo-next-page next-btn-unique">
-    <span>›</span>
-  </button>
-</section>
+   <ProjectNavigation />
 
     </div>
   );

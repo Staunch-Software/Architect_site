@@ -1,0 +1,39 @@
+/* Hide default cursor everywhere */
+body {
+  cursor: none;
+}
+a,button,a:hover,a:focus,button:hover,button:focus,contact-card*:hover{
+  cursor: none;
+}
+
+/* Your SVG cursor */
+.cursor-svg {
+  position: fixed;
+  width: 32px;      /* adjust size if needed */
+  height: 32px;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%);
+}
+
+/* Glow behind the cursor */
+.cursor-glow {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(155, 89, 182, 0.5);
+  filter: blur(25px);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+/* Hide custom cursor when hovering over links or buttons */
+a:hover ~ .cursor-svg,
+a:hover ~ .cursor-glow,
+button:hover ~ .cursor-svg,
+button:hover ~ .cursor-glow,
+.contact-card:hover ~ .cursor-svg,
+.contact-card:hover ~ .cursor-glow {
+  opacity: 0 !important;
+}

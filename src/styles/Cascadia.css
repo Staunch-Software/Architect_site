@@ -48,9 +48,10 @@ html,body{
   animation: cascadiaFloatIn 0.8s ease forwards;
 }
 
+
 /* Header Section */
 .cascadia-container .header {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .cascadia-container .title {
@@ -58,7 +59,7 @@ html,body{
   text-align: left;
   font-weight: 300;
   letter-spacing: 2px;
-  margin-bottom: 10px;
+margin-top: 100px;
   color: #000;
   margin-left:10%;
 }
@@ -70,6 +71,7 @@ html,body{
   color: #666;
   letter-spacing: 1px;
   margin-left: 10%;
+  margin-top: -1%;
     
 }
 
@@ -408,3 +410,1090 @@ html,body{
     font-size: 14px;
   }
 }
+
+/* ========= RESPONSIVE MEDIA QUERIES - REPLACE OLD ONES ========= */
+
+/* Mobile Small - 0px to 480px */
+@media (min-width: 0px) and (max-width: 480px) {
+  .cascadia-container {
+    padding: 25px 15px;
+  }
+
+  .cascadia-container .header {
+    margin-bottom: 35px;
+  }
+
+  .cascadia-container .title {
+    font-size: 28px;
+    text-align: center;
+    margin-left: 0;
+    letter-spacing: 1px;
+  }
+
+  .cascadia-container .subtitle {
+    font-size: 14px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .cascadia-container .content-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .cascadia-container .main-image {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .cascadia-container .description {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 0;
+  }
+
+  .cascadia-container .description p {
+    margin-right: 0;
+  }
+
+  .cascadia-container .thumbnails {
+    margin-left: 0;
+    gap: 15px;
+  }
+
+  .cascadia-container .thumbnail {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .cascadia-container .site-plan {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .cascadia-container .process-diagrams {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-left: 0;
+    gap: 20px;
+  }
+
+  .cascadia-container .model-image {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .cascadia-container .site-details {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .cascadia-container .detailed-plan {
+    margin-left: 0;
+  }
+
+  .cascadia-container .wheel-diagram {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .cascadia-container .floor-plans {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .cascadia-container .floor-plan-image {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .cascadia-container .program-text {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .para-wrap,
+  .para-1,
+  .para-2,
+  .para-3,
+  .para-4 {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .cascadia-container .elevation-image {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* Mobile Medium - 481px to 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  .cascadia-container {
+    padding: 30px 25px;
+  }
+
+  .cascadia-container .title {
+    font-size: 36px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .cascadia-container .subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .cascadia-container .content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cascadia-container .main-image {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .cascadia-container .description {
+    font-size: 15px;
+    margin-top: 0;
+  }
+
+  .cascadia-container .description p {
+    margin-right: 0;
+  }
+
+  .cascadia-container .thumbnails {
+    margin-left: 0;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .cascadia-container .thumbnail {
+    width: 48%;
+  }
+
+  .cascadia-container .site-plan {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .cascadia-container .process-diagrams {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin-left: 0;
+    gap: 25px;
+  }
+
+  .cascadia-container .model-image {
+    width: 95%;
+    margin-top: 20px;
+  }
+
+  .cascadia-container .site-details {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cascadia-container .detailed-plan {
+    margin-left: 0;
+  }
+
+  .cascadia-container .wheel-diagram {
+    width: 80%;
+    margin: 20px auto 0;
+  }
+
+  .cascadia-container .floor-plans {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cascadia-container .floor-plan-image {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .cascadia-container .program-text {
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  .para-wrap {
+    margin-right: 0;
+  }
+
+  .para-1,
+  .para-2,
+  .para-3,
+  .para-4 {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
+
+  .cascadia-container .elevation-image {
+    width: 90%;
+    margin: 0 auto 28px;
+  }
+}
+
+/* Tablet - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cascadia-container {
+    padding: 40px 40px;
+  }
+
+  .cascadia-container .title {
+    font-size: 42px;
+  }
+
+  .cascadia-container .subtitle {
+    font-size: 17px;
+  }
+
+  .cascadia-container .content-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .cascadia-container .main-image {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .cascadia-container .description {
+    font-size: 15px;
+  }
+
+  .cascadia-container .thumbnails {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .cascadia-container .thumbnail {
+    width: 45%;
+  }
+
+  .cascadia-container .site-plan {
+    width: 85%;
+  }
+
+  .cascadia-container .process-diagrams {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin-left: 0;
+    gap: 30px;
+  }
+
+  .cascadia-container .site-details {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .cascadia-container .wheel-diagram {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .cascadia-container .floor-plans {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .cascadia-container .floor-plan-image {
+    width: 90%;
+  }
+
+  .para-wrap {
+    margin-right: 10%;
+  }
+
+  .cascadia-container .elevation-image {
+    width: 80%;
+  }
+}/* ========= RESPONSIVE MEDIA QUERIES - ADD TO END OF YOUR CSS ========= */
+/* DESKTOP (1025px+) - NO CHANGES, KEEPS ORIGINAL ALIGNMENT */
+
+/* Mobile Small - 0px to 480px */
+@media (min-width: 0px) and (max-width: 480px) {
+  .cascadia-container {
+    padding: 25px 15px;
+  }
+
+  .cascadia-container .header {
+    margin-bottom: 35px;
+  }
+
+  .cascadia-container .title {
+    font-size: 28px;
+    text-align: center;
+    margin-left: 0 !important;
+    letter-spacing: 1px;
+  }
+
+  .cascadia-container .subtitle {
+    font-size: 14px;
+    text-align: center;
+    margin-left: 0 !important;
+  }
+
+  .cascadia-container .main-content {
+    margin-bottom: 50px;
+  }
+
+  .cascadia-container .content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .cascadia-container .main-image-container {
+    max-width: 100%;
+  }
+
+  .cascadia-container .main-image {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100%;
+  }
+
+  .cascadia-container .description {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 0 !important;
+  }
+
+  .cascadia-container .description p {
+    margin-right: 0 !important;
+  }
+
+  .cascadia-container .thumbnails {
+    margin-left: 0 !important;
+    margin-bottom: 40px;
+    gap: 15px;
+  }
+
+  .cascadia-container .thumbnail {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .cascadia-container .design-process {
+    margin: 30px 0;
+  }
+
+  .cascadia-container .site-plan-container {
+    margin-right: 0 !important;
+  }
+
+  .cascadia-container .site-plan {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .cascadia-container .process-diagrams {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    gap: 20px;
+  }
+
+  .cascadia-container .model-section {
+    margin-bottom: 40px;
+  }
+
+  .cascadia-container .model-image {
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .cascadia-container .site-details {
+    grid-template-columns: 1fr !important;
+    gap: 35px;
+    margin-bottom: 50px;
+  }
+
+  .cascadia-container .site-plan-detailed {
+    margin-left: 0 !important;
+    max-width: 100%;
+  }
+
+  .cascadia-container .detailed-plan {
+    margin-left: 0 !important;
+  }
+
+  .cascadia-container .spaces-diagram {
+    margin-right: 0 !important;
+  }
+
+  .cascadia-container .wheel-diagram {
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .cascadia-container .floor-plans {
+    grid-template-columns: 1fr !important;
+    gap: 35px;
+    margin-bottom: 50px;
+  }
+
+  .cascadia-container .floor-plan-image {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 30px;
+  }
+
+  .cascadia-container .program-text {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 0 !important;
+  }
+
+  .para-wrap {
+    margin-bottom: 25px;
+    margin-right: 0 !important;
+  }
+
+  .para-1,
+  .para-2,
+  .para-3,
+  .para-4 {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 25px;
+  }
+
+  .cascadia-container .elevations {
+    margin-bottom: 30px;
+  }
+
+  .cascadia-container .elevation-image {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 25px;
+  }
+}
+
+/* Mobile Medium - 481px to 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  .cascadia-container {
+    padding: 30px 25px;
+  }
+
+  .cascadia-container .header {
+    margin-bottom: 45px;
+  }
+
+  .cascadia-container .title {
+    font-size: 36px;
+    text-align: center;
+    margin-left: 0 !important;
+  }
+
+  .cascadia-container .subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin-left: 0 !important;
+  }
+
+  .cascadia-container .main-content {
+    margin-bottom: 60px;
+  }
+
+  .cascadia-container .content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .cascadia-container .main-image-container {
+    max-width: 100%;
+  }
+
+  .cascadia-container .main-image {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100%;
+  }
+
+  .cascadia-container .description {
+    font-size: 15px;
+    text-align: left;
+    margin-top: 0 !important;
+  }
+
+  .cascadia-container .description p {
+    margin-right: 0 !important;
+  }
+
+  .cascadia-container .thumbnails {
+    margin-left: 0 !important;
+    margin-bottom: 50px;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .cascadia-container .thumbnail {
+    width: 48% !important;
+    margin-right: 0 !important;
+  }
+
+  .cascadia-container .design-process {
+    margin: 35px 0;
+  }
+
+  .cascadia-container .site-plan-container {
+    margin-right: 0 !important;
+  }
+
+  .cascadia-container .site-plan {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+  }
+
+  .cascadia-container .process-diagrams {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    gap: 25px;
+  }
+
+  .cascadia-container .model-section {
+    margin-bottom: 45px;
+  }
+
+  .cascadia-container .model-image {
+    width: 95% !important;
+    margin-top: 0 !important;
+  }
+
+  .cascadia-container .site-details {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .cascadia-container .site-plan-detailed {
+    margin-left: 0 !important;
+    max-width: 100%;
+  }
+
+  .cascadia-container .detailed-plan {
+    margin-left: 0 !important;
+  }
+
+  .cascadia-container .spaces-diagram {
+    margin-right: 0 !important;
+  }
+
+  .cascadia-container .wheel-diagram {
+    width: 80% !important;
+    margin: 0 auto !important;
+  }
+
+  .cascadia-container .floor-plans {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .cascadia-container .floor-plan-image {
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 30px;
+  }
+
+  .cascadia-container .program-text {
+    font-size: 15px;
+    text-align: left;
+    margin-top: 0 !important;
+  }
+
+  .para-wrap {
+    margin-bottom: 30px;
+    margin-right: 0 !important;
+  }
+
+  .para-1,
+  .para-2,
+  .para-3,
+  .para-4 {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 30px;
+  }
+
+  .cascadia-container .elevations {
+    margin-bottom: 35px;
+  }
+
+  .cascadia-container .elevation-image {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 28px;
+  }
+}
+
+/* Tablet - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cascadia-container {
+    padding: 40px 40px;
+  }
+
+  .cascadia-container .header {
+    margin-bottom: 50px;
+  }
+
+  .cascadia-container .title {
+    font-size: 42px;
+    margin-left: 5% !important;
+  }
+
+  .cascadia-container .subtitle {
+    font-size: 17px;
+    margin-left: 5% !important;
+  }
+
+  .cascadia-container .main-content {
+    margin-bottom: 70px;
+  }
+
+  .cascadia-container .content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 50px;
+  }
+
+  .cascadia-container .main-image {
+    width: 90% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block;
+  }
+
+  .cascadia-container .description {
+    margin-top: 0 !important;
+    font-size: 15px;
+  }
+
+  .cascadia-container .description p {
+    margin-right: 5% !important;
+  }
+
+  .cascadia-container .thumbnails {
+    margin-left: 5% !important;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .cascadia-container .thumbnail {
+    width: 45% !important;
+  }
+
+  .cascadia-container .site-plan {
+    width: 85% !important;
+    margin-left: 5% !important;
+    margin-top: 0 !important;
+  }
+
+  .cascadia-container .process-diagrams {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    gap: 30px;
+  }
+
+  .cascadia-container .site-details {
+    grid-template-columns: 1fr !important;
+    gap: 50px;
+  }
+
+  .cascadia-container .site-plan-detailed {
+    margin-left: 5% !important;
+  }
+
+  .cascadia-container .detailed-plan {
+    margin-left: 10% !important;
+  }
+
+  .cascadia-container .wheel-diagram {
+    width: 70% !important;
+    margin: 0 auto !important;
+  }
+
+  .cascadia-container .floor-plans {
+    grid-template-columns: 1fr !important;
+    gap: 50px;
+  }
+
+  .cascadia-container .floor-plan-image {
+    width: 90% !important;
+    margin-left: 10% !important;
+  }
+
+  .cascadia-container .program-text {
+    margin-top: 0 !important;
+  }
+
+  .para-wrap {
+    margin-right: 15% !important;
+  }
+
+  .para-1 {
+    margin-top: 0 !important;
+    margin-right: 15% !important;
+  }
+
+  .cascadia-container .elevation-image {
+    width: 80% !important;
+    margin-left: 10% !important;
+  }
+}
+
+/* ========== RESPONSIVE MEDIA QUERIES - CONCRETE PAGE ========== */
+
+/* Mobile Small - 0px to 480px */
+@media (min-width: 0px) and (max-width: 480px) {
+  .concrete-page {
+    padding: 20px 15px;
+  }
+
+  .concrete-hero {
+    padding: 20px 0;
+  }
+
+  .concrete-page .project-title {
+    font-size: 32px !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-top: 20px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .concrete-page .project-subtitle {
+    font-size: 16px !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+  }
+
+  .concrete-page .sketches-section {
+    margin: 40px 0;
+  }
+
+  .concrete-page .sketches-grid {
+    padding: 20px 10px;
+    min-height: auto;
+  }
+
+  .concrete-page .technical-drawing-image1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .concrete-page .technical-section {
+    margin: 40px 0;
+  }
+
+  .concrete-page .technical-drawing-container {
+    width: 100% !important;
+    margin-bottom: 30px;
+  }
+
+  .concrete-page .technical-drawing-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .concrete-page .gallery-section {
+    margin: 50px 0;
+    padding: 20px 0;
+  }
+
+  .concrete-page .gallery-container {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .concrete-page .images-wrapper {
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .concrete-page .gallery-image {
+    min-width: 100% !important;
+  }
+
+  .concrete-page .gallery-image img {
+    height: 280px !important;
+  }
+
+  .concrete-page .scroll-button {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .concrete-page .scroll-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .project-nav-arrows {
+    padding: 0 15px;
+    margin: 40px auto 30px auto;
+  }
+
+  .project-left-arrow {
+    font-size: 20px !important;
+    padding: 10px 20px !important;
+  }
+}
+
+/* Mobile Medium - 481px to 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  .concrete-page {
+    padding: 20px 25px;
+  }
+
+  .concrete-hero {
+    padding: 30px 0;
+  }
+
+  .concrete-page .project-title {
+    font-size: 42px !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-top: 30px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .concrete-page .project-subtitle {
+    font-size: 18px !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+  }
+
+  .concrete-page .sketches-section {
+    margin: 50px 0;
+  }
+
+  .concrete-page .sketches-grid {
+    padding: 40px 20px;
+    min-height: auto;
+  }
+
+  .concrete-page .technical-drawing-image1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .concrete-page .technical-section {
+    margin: 50px 0;
+  }
+
+  .concrete-page .technical-drawing-container {
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 40px;
+  }
+
+  .concrete-page .technical-drawing-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .concrete-page .gallery-section {
+    margin: 60px 0;
+    padding: 30px 0;
+  }
+
+  .concrete-page .gallery-container {
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .concrete-page .images-wrapper {
+    gap: 18px;
+    padding: 18px 0;
+  }
+
+  .concrete-page .gallery-image {
+    min-width: 100% !important;
+  }
+
+  .concrete-page .gallery-image img {
+    height: 320px !important;
+  }
+
+  .concrete-page .scroll-button {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .concrete-page .scroll-button svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .project-nav-arrows {
+    padding: 0 25px;
+    margin: 50px auto 35px auto;
+  }
+
+  .project-left-arrow {
+    font-size: 24px !important;
+    padding: 11px 24px !important;
+  }
+}
+
+/* Tablet - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .concrete-page {
+    padding: 20px 30px;
+  }
+
+  .concrete-hero {
+    padding: 40px 20px;
+  }
+
+  .concrete-page .project-title {
+    font-size: 52px !important;
+    text-align: left !important;
+    margin-left: 60px !important;
+    margin-top: 40px !important;
+  }
+
+  .concrete-page .project-subtitle {
+    font-size: 19px !important;
+    text-align: left !important;
+    margin-left: 60px !important;
+  }
+
+  .concrete-page .sketches-section {
+    margin: 55px 0;
+  }
+
+  .concrete-page .sketches-grid {
+    padding: 50px 30px;
+  }
+
+  .concrete-page .technical-drawing-image1 {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin-left: 5% !important;
+    margin-top: -40px !important;
+  }
+
+  .concrete-page .technical-section {
+    margin: 55px 0;
+  }
+
+  .concrete-page .technical-drawing-container {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .concrete-page .technical-drawing-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 10% !important;
+    margin-top: -30px !important;
+  }
+
+  .concrete-page .gallery-section {
+    margin: 70px 0;
+    padding: 35px 0;
+  }
+
+  .concrete-page .gallery-container {
+    gap: 18px;
+  }
+
+  .concrete-page .images-wrapper {
+    gap: 18px;
+  }
+
+  .concrete-page .gallery-image {
+    min-width: calc(50% - 9px) !important;
+  }
+
+  .concrete-page .gallery-image img {
+    height: 360px !important;
+  }
+
+  .concrete-page .scroll-button {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .project-nav-arrows {
+    padding: 0 30px;
+    margin: 55px auto 40px auto;
+  }
+
+  .project-left-arrow {
+    font-size: 26px !important;
+    padding: 12px 26px !important;
+  }
+}
+
+/* Large Desktop - 1025px to 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .concrete-page .project-title {
+    margin-left: 120px !important;
+  }
+
+  .concrete-page .project-subtitle {
+    margin-left: 120px !important;
+  }
+
+  .concrete-page .technical-drawing-image1 {
+    margin-left: 10% !important;
+  }
+
+  .concrete-page .technical-drawing-image {
+    margin-left: 25% !important;
+  }
+}
+
+/* Extra Large Desktop - 1441px+ */
+@media (min-width: 1441px) {
+  .concrete-page .project-title {
+    margin-left: 180px;
+  }
+
+  .concrete-page .project-subtitle {
+    margin-left: 180px;
+  }
+
+  .concrete-page .technical-drawing-image1 {
+    margin-left: 14%;
+  }
+
+  .concrete-page .technical-drawing-image {
+    margin-left: 35%;
+  }
+}
+

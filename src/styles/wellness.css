@@ -1,3 +1,24 @@
+/* Better readability globally */
+.wellness-section p {
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.section-left img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+
+
 /* ========= ANIMATIONS ========= */
 @keyframes slideIn {
   from {
@@ -30,6 +51,74 @@
   }
 }
 
+/* infinite scrolling container */
+.thumb-grid {
+  width: 100%;
+  overflow-x: hidden; /* hide overflow for smooth infinite scroll */
+  padding: 15px 0;
+}
+
+/* scrolling track */
+.thumb-track {
+  display: flex;
+  gap: 20px;
+  animation: scrollInfinite 25s linear infinite;
+}
+
+/* images */
+.thumb-track img {
+  height: 130px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* infinite scroll keyframes */
+@keyframes scrollInfinite {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* move half width because list is duplicated */
+}
+
+/* Hide scrollbar for infinite scroll thumbnails */
+.thumb-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.thumb-grid {
+  -ms-overflow-style: none;   /* hide scrollbar for IE/Edge */
+  scrollbar-width: none;      /* hide scrollbar for Firefox */
+}
+
+
+.thumb-grid:hover .thumb-track {
+  animation-play-state: paused;
+}
+
+.thumb-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.thumb-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.thumb-grid::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 8px;
+}
+
+
+/* Remove horizontal scroll from the whole page */
+body, html, .wellness-page {
+  overflow-x: hidden;
+}
+
+
 /* Animation Classes */
 .wellness-hero,
 .wellness-gallery-row,
@@ -57,27 +146,94 @@
 }
 
 /* ========= HERO ========= */
+/* ========= HERO ========= */
 .wellness-hero {
   display: flex;
   justify-content: space-between;
-  padding: 80px 8%;
-  gap: 80px;
+  align-items: flex-start;     /* top-align both columns */
+  padding: 80px 4%;
+  gap: 120px;                  /* space between left and right like reference */
 }
 
 .hero-left {
-  flex: 0 0 45%;
-}
-
-.hero-right {
-  flex: 0 0 45%;
-  font-size: 16px;
-  line-height: 1.7;
+  flex: 0 0 32%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;                   /* space between title and meta info */
 }
 
 .hero-title {
   font-size: 52px;
-  margin-bottom: 40px;
+  line-height: 1.1;
+  margin: 0;                   /* remove extra space under title */
 }
+
+/* meta block under the title */
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  font-size: 18px;
+}
+
+.hero-meta-item .meta-label {
+  display: block;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+
+.hero-meta-item .meta-value {
+  display: block;
+  margin-top: 6px;
+  font-size: 19px;
+}
+
+/* right paragraph column */
+.hero-right {
+  flex: 0 0 42%;
+  text-align: left !important;
+  font-size: 18px;
+  line-height: 1.85;
+  margin-top: 20px;
+}
+
+
+
+/* === FIX HERO TOP ALIGNMENT === */
+.hero-left {
+  flex: 0 0 38%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left !important;
+  gap: 40px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* spacing between Project Type, Spring, Location */
+  font-size: 18px;
+}
+
+.hero-meta-item .meta-label {
+  display: block;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.hero-meta-item .meta-value {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.wellness-hero {
+  gap: 120px;  padding: 130px 8% 80px;  /* added more top space */
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
 
 /* ========= HERO STRIP ========= */
 .wellness-gallery-row {
@@ -99,9 +255,54 @@
 }
 
 /* ========= GENERIC SECTION ========= */
-.wellness-section {
-  padding: 60px 8% 80px;
+
+/* ONLY moves the Problem & Site title */
+.problem-site .section-title {
+  margin-left: -70%;   /* adjust as needed */
 }
+
+/* Reduce space after Problem & Site */
+.problem-site {
+  padding-bottom: 0 !important;
+}
+
+/* Pull Aim & Philosophy closer up */
+.aim-philosophy {
+  padding-top: 0 !important;
+  margin-top: -10px;   /* pull section slightly upward */
+}
+
+/* Move ONLY the Result of Expectation & Solution upward */
+.result-expectation {
+  margin-top: -60% ;   /* adjust: -20px / -60px */
+}
+
+
+/* Move all sections after Problem & Site slightly upward */
+.problem-site + .wellness-section,
+.problem-site + .wellness-section ~ .wellness-section {
+  margin-top: -30px;   /* adjust: -20px, -40px as you prefer */
+}
+
+
+/* Move ALL section titles left safely */
+.wellness-section > .section-title {
+  padding-right: 75%;   /* adjust to 10px or 30px as you like */
+}
+
+
+/* ONLY moves the Problem & Site paragraph upward */
+.problem-site .section-right {
+  margin-top: 60px;   /* was 200px */
+}
+
+
+.wellness-section {
+  padding: 20px 8% 40px;  /* reduced gap */
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
 
 .section-title {
   font-size: 26px;
@@ -110,15 +311,47 @@
 
 /* ========= PROBLEM & SITE ========= */
 .problem-site {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+    display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
 }
 
+.problem-site .section-right p {
+  text-align: left !important;
+  line-height: 1.7;
+}
+
+
+               
+
 .single-image-block img {
-  width: 1000px;
+  width: 100%;;
   max-width: 850px;
   height: 800px;
+}
+
+/* Reduce height of problem site images */
+.problem-site img {
+  max-height: 350px; /* adjust smaller if needed */
+  object-fit: cover;
+}
+
+/* Reset Problem & Site to original layout */
+.problem-site {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 40px !important;
+  text-align: left !important;
+  align-items: start !important;
+}
+
+.problem-site img {
+  margin: 0;   /* remove centering */
+}
+
+.problem-site p {
+  text-align: left !important;
 }
 
 .section-right {
@@ -176,6 +409,10 @@
   grid-template-columns: 1.2fr 1fr;
   gap: 40px;
 }
+ .transform-right{
+  margin-top: 50px;
+  max-width: 500px;
+ }
 
 /* ========= ENVELOPE ========= */
 .envelope-layout {
@@ -228,17 +465,31 @@
   bottom: 10%;
 }
 
-.floor-img {
-  width: 100%;
-  object-fit: contain;
+/* Make ONLY Floor 1 image smaller */
+.floor1-img {
+  width: 80% !important;      /* adjust 50%–80% as you like */
+  margin: 0 auto;
+  display: block;
 }
+
+.floor p{
+  width: 300px;
+}
+
 
 /* ========= CIRCLES ========= */
 .circles-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
-}
+  gap: 30px;
+  margin-bottom:50px ;
+  }
+
+  .circles-grid p{
+    width: 350px;
+    margin-left: 40px;
+  }
 
 .circle-item img {
   width: 65%;
@@ -256,16 +507,109 @@
 
 /* ========= GALLERY ========= */
 .thumb-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
+  display: flex;               /* change grid → scrolling flexbox */
+  gap: 20px;                   /* bigger gap between thumbs */
+  overflow-x: auto;            /* scroll horizontally */
+  padding: 10px 0;         
 }
+
+.thumb-grid {
+  scroll-behavior: smooth;
+}
+
+.thumb-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.thumb-grid::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+
 
 .thumb-grid img {
   width: 100%;
   height: 130px;
   object-fit: cover;
 }
+
+/* === UPDATED HERO STRIP: 1 BIG LEFT + 3 SMALL RIGHT === */
+.hero-strip-4 {
+  width: 100%;
+  max-width: 1300px;      /* makes it smaller */
+  margin: 0 auto;         /* centers the whole block */
+  padding: 20px 2%;       /* reduces spacing */
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;  /* smaller left side */
+  gap: 15px;
+  align-items: stretch;
+  overflow: hidden;       /* prevents images from overflowing */
+}
+
+.hero-strip-left img {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;      /* smaller height */
+  object-fit: cover;
+
+}
+
+/* right column with 3 equal images */
+.hero-strip-right {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.hero-strip-right img {
+  width: 50%;
+  height: 100%;
+  max-height: 160px;      /* makes each image smaller */
+  object-fit: cover;
+  
+}
+
+/* === FINAL HERO STRIP LAYOUT === */
+.hero-strip-final {
+  width: 100%;
+  max-width: 1500px;       /* keeps layout centered like screenshot */
+  margin: 0 auto;
+  padding: 40px 2%;
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* left image much bigger */
+  gap: 25px;
+  align-items: stretch;
+}
+
+.hero-strip-final-left img {
+  width: 100%;
+  height: 100%;
+  max-height: 700px;       /* makes left image BIG exactly like screenshot */
+  object-fit: cover;
+ 
+}
+
+.hero-strip-final-right {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.hero-strip-final-right img {
+  width: 100%;
+  height: 100%;
+  max-height: 220px;       /* makes right images BIGGER */
+  object-fit: cover;
+ 
+}
+
+/* Remove horizontal scrolling */
+body, html, .wellness-page {
+  overflow-x: hidden;
+}
+
+
 
 /* ========= MOBILE ========= */
 @media (max-width: 900px) {
@@ -298,5 +642,869 @@
 
   .floor-img {
     width: 45%;
+  }
+}
+
+/* Move ALL sections after Problem & Site upward */
+.problem-site ~ .wellness-section {
+  margin-top: -60px;   /* adjust -20px / -60px as you need */
+}
+
+/* 100% Guaranteed movement only for Result section */
+.wellness-section.result-expectation {
+  margin-top: -60px !important;   /* adjust -40px / -80px as needed */
+  padding-top: 0 !important;
+}
+
+/* Move everything under Result upward equally */
+.wellness-section.result-expectation + .wellness-section,
+.wellness-section.result-expectation + .wellness-section ~ .wellness-section {
+  margin-top: -60px !important;   /* SAME VALUE */
+}
+
+/* Center all sections BELOW hero, except Problem & Site */
+.wellness-section:not(.problem-site) {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+/* Center images for all sections except Problem & Site */
+.wellness-section:not(.problem-site) img {
+  margin: 0 auto;
+  display: block;
+}
+
+/* Center text for all sections except Problem & Site */
+.wellness-section:not(.problem-site) p,
+.wellness-section:not(.problem-site) figcaption {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 850px;
+}
+
+/* Restore Problem & Site back to normal layout */
+.problem-site {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 40px !important;
+  align-items: start !important;
+  text-align: left !important;
+}
+
+/* Make sure the title shows normally */
+.problem-site .section-title {
+  display: block !important;
+  text-align: left !important;
+  margin: 0 0 20px 0 !important;
+  transform: none !important;
+}
+
+/* Move ONLY the exploded image left */
+.exploded-img {
+  margin-left: -15% !important;   /* adjust -10%, -20%, etc. */
+}
+
+.corridor-sync-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.corridor-sync-img {
+  width: 100%;
+  max-height: 700px;
+  object-fit: contain;
+}
+/* Corridor Slider Buttons */
+/* Reduce big corridor image size */
+.corridor-sync-container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.corridor-sync-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;   /* makes it look cleaner */
+  border-radius: 10px; /* optional — looks nicer */
+}
+
+
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 30;
+  border-radius: 8px;
+}
+
+.slider-btn.left { left: 20px; }
+.slider-btn.right { right: 20px; }
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.75);
+}
+
+/* BIG CORRIDOR SLIDER */
+.corridor-sync-container {
+  position: relative;
+  width: 100%;
+}
+
+.corridor-sync-img {
+  width: 100%;
+  max-height: 700px;
+  object-fit: contain;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.slider-btn.left {
+  left: 20px;
+}
+
+.slider-btn.right {
+  right: 20px;
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* Force smaller corridor image */
+.corridor-section .single-wide-image img.corridor-sync-img {
+  width: 70% !important;        /* decrease width */
+  max-height: 450px !important; /* decrease height */
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Wrapper to place overlay above image */
+.corridor-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Actual image */
+.corridor-image-wrapper img {
+  width: 70% !important;     /* use your adjusted size */
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+/* Overlay (invisible initially) */
+.corridor-overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 10px;
+}
+
+/* Text inside overlay */
+.corridor-overlay-text {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 70%;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  transition: opacity 0.4s ease;
+}
+
+/* Hover effect triggers overlay + text */
+.corridor-image-wrapper:hover .corridor-overlay {
+  opacity: 1;
+}
+
+.corridor-image-wrapper:hover .corridor-overlay-text {
+  opacity: 1;
+}
+
+/* Optional: zoom image slightly on hover */
+.corridor-image-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+/* Circle fade up animation */
+@keyframes circleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.circle-item {
+  opacity: 0;
+}
+
+/* Apply animation only when visible */
+.circle-item.circle-appear {
+  animation: circleFadeUp 0.9s ease-out forwards;
+}
+
+/* Staggered delays — must match .circle-appear */
+.circle-item:nth-child(1).circle-appear {
+  animation-delay: 0.2s;
+}
+.circle-item:nth-child(2).circle-appear {
+  animation-delay: 0.6s;
+}
+.circle-item:nth-child(3).circle-appear {
+  animation-delay: 1s;
+}
+
+/* ========= RESPONSIVE DESIGN ========= */
+
+/* Mobile Small - 0px to 480px */
+@media (min-width: 0px) and (max-width: 480px) {
+  .wellness-hero {
+    flex-direction: column;
+    padding: 40px 5% 30px;
+    gap: 25px;
+  }
+
+  .hero-left {
+    flex: 1;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .hero-meta {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero-meta-item .meta-label {
+    font-size: 14px;
+  }
+
+  .hero-meta-item .meta-value {
+    font-size: 16px;
+  }
+
+  .hero-right {
+    flex: 1;
+    width: 100%;
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* Hero Strip */
+  .hero-strip-final {
+    grid-template-columns: 1fr;
+    padding: 20px 5%;
+    gap: 12px;
+  }
+
+  .hero-strip-final-left img {
+    max-height: 280px;
+  }
+
+  .hero-strip-final-right {
+    grid-template-rows: none;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-strip-final-right img {
+    max-height: 220px;
+  }
+
+  /* Sections */
+  .wellness-section {
+    padding: 15px 5% 25px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    text-align: left !important;
+    margin-bottom: 18px;
+  }
+
+  .wellness-section > .section-title {
+    padding-right: 0;
+  }
+
+  .problem-site .section-title {
+    margin-left: 0 !important;
+  }
+
+  .wellness-section p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Problem & Site */
+  .problem-site {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .problem-site .section-right {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .single-image-block img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .problem-site img {
+    max-height: none;
+  }
+
+  /* All Grid Layouts */
+  .dual-image-block,
+  .result-layout,
+  .envelope-layout,
+  .transform-layout,
+  .axo-grid,
+  .two-col,
+  .context-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .context-right {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .context-right img {
+    width: 100%;
+    height: auto;
+  }
+
+  .transform-right {
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  /* Big Image Rows */
+  .big-image-row {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .big-image-row p {
+    width: 100%;
+    text-align: left !important;
+    font-size: 14px;
+  }
+
+  /* Exploded View */
+  .exploded-wrapper {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .exploded-img {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .floor-stack {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    margin-top: 18px;
+    width: 100%;
+  }
+
+  .floor1-img,
+  .floor img {
+    width: 100% !important;
+  }
+
+  .floor p {
+    width: 100%;
+    text-align: left !important;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  /* Circles */
+  .circles-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .circles-grid p {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+    font-size: 14px;
+  }
+
+  .circle-item img {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  /* Corridor Slider */
+  .corridor-image-wrapper img {
+    width: 100% !important;
+    max-height: 250px !important;
+  }
+
+  .corridor-overlay,
+  .corridor-overlay-text {
+    width: 102%;
+  }
+
+  .corridor-overlay-text {
+    font-size: 12px;
+    padding-left: 12px;
+    bottom: 10px;
+  }
+
+  .slider-btn {
+    padding: 5px 9px;
+    font-size: 20px;
+  }
+
+  .slider-btn.left { left: 5px; }
+  .slider-btn.right { right: 5px; }
+
+  /* Gallery */
+  .thumb-track img {
+    height: 85px;
+  }
+
+  /* Reset margins */
+  .problem-site ~ .wellness-section,
+  .wellness-section.result-expectation,
+  .wellness-section.result-expectation + .wellness-section,
+  .wellness-section.result-expectation + .wellness-section ~ .wellness-section {
+    margin-top: 0 !important;
+  }
+
+  .aim-philosophy {
+    padding-top: 15px !important;
+    margin-top: 0 !important;
+  }
+
+  .wellness-section:not(.problem-site) p,
+  .wellness-section:not(.problem-site) figcaption {
+    text-align: left !important;
+  }
+}
+
+/* Mobile Medium - 481px to 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  .wellness-hero {
+    flex-direction: column;
+    padding: 50px 6% 40px;
+    gap: 35px;
+  }
+
+  .hero-left {
+    flex: 1;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .hero-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px 40px;
+  }
+
+  .hero-meta-item .meta-label {
+    font-size: 16px;
+  }
+
+  .hero-meta-item .meta-value {
+    font-size: 18px;
+  }
+
+  .hero-right {
+    flex: 1;
+    width: 100%;
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* Hero Strip */
+  .hero-strip-final {
+    grid-template-columns: 1fr;
+    padding: 25px 6%;
+    gap: 15px;
+  }
+
+  .hero-strip-final-left img {
+    max-height: 380px;
+  }
+
+  .hero-strip-final-right {
+    grid-template-rows: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .hero-strip-final-right img {
+    max-height: 200px;
+  }
+
+  /* Sections */
+  .wellness-section {
+    padding: 20px 6% 30px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    text-align: left !important;
+    margin-bottom: 22px;
+  }
+
+  .wellness-section > .section-title {
+    padding-right: 0;
+  }
+
+  .problem-site .section-title {
+    margin-left: 0 !important;
+  }
+
+  .wellness-section p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* Problem & Site */
+  .problem-site {
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+  }
+
+  .problem-site .section-right {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .single-image-block img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .problem-site img {
+    max-height: none;
+  }
+
+  /* All Grid Layouts */
+  .dual-image-block,
+  .result-layout,
+  .envelope-layout,
+  .transform-layout,
+  .axo-grid,
+  .two-col,
+  .context-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .context-right {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .context-right img {
+    width: 32%;
+    height: auto;
+  }
+
+  .transform-right {
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  /* Big Image Rows */
+  .big-image-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .big-image-row p {
+    width: 100%;
+    text-align: left !important;
+  }
+
+  /* Exploded View */
+  .exploded-wrapper {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .exploded-img {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .floor-stack {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .floor1-img,
+  .floor img {
+    width: 100% !important;
+  }
+
+  .floor p {
+    width: 100%;
+    text-align: left !important;
+    margin-top: 15px;
+  }
+
+  /* Circles */
+  .circles-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .circles-grid p {
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+  }
+
+  .circle-item img {
+    width: 80%;
+    max-width: 350px;
+  }
+
+  /* Corridor Slider */
+  .corridor-image-wrapper img {
+    width: 95% !important;
+    max-height: 380px !important;
+  }
+
+  .corridor-overlay,
+  .corridor-overlay-text {
+    width: 97%;
+  }
+
+  .corridor-overlay-text {
+    font-size: 14px;
+    padding-left: 15px;
+  }
+
+  .slider-btn {
+    padding: 7px 12px;
+    font-size: 24px;
+  }
+
+  .slider-btn.left { left: 8px; }
+  .slider-btn.right { right: 8px; }
+
+  /* Gallery */
+  .thumb-track img {
+    height: 105px;
+  }
+
+  /* Reset margins */
+  .problem-site ~ .wellness-section,
+  .wellness-section.result-expectation,
+  .wellness-section.result-expectation + .wellness-section,
+  .wellness-section.result-expectation + .wellness-section ~ .wellness-section {
+    margin-top: 0 !important;
+  }
+
+  .aim-philosophy {
+    padding-top: 20px !important;
+    margin-top: 0 !important;
+  }
+
+  .wellness-section:not(.problem-site) p,
+  .wellness-section:not(.problem-site) figcaption {
+    text-align: left !important;
+  }
+}
+
+/* Tablet - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .wellness-hero {
+    padding: 70px 5% 50px;
+    gap: 60px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .hero-left {
+    flex: 0 0 40%;
+  }
+
+  .hero-right {
+    flex: 0 0 45%;
+    font-size: 16px;
+  }
+
+  .hero-meta {
+    gap: 22px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .wellness-section {
+    padding: 20px 5% 35px;
+  }
+
+  .problem-site {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 35px;
+  }
+
+  .section-right {
+    margin-top: 100px;
+    width: 90%;
+  }
+
+  .hero-strip-final {
+    max-width: 100%;
+    padding: 30px 3%;
+    gap: 20px;
+  }
+
+  .hero-strip-final-left img {
+    max-height: 550px;
+  }
+
+  .hero-strip-final-right img {
+    max-height: 175px;
+  }
+
+  .result-layout {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .context-layout {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 22px;
+  }
+
+  .context-right img {
+    width: 80%;
+    height: 140px;
+  }
+
+  .axo-grid {
+    gap: 28px;
+  }
+
+  .corridor-image-wrapper img {
+    width: 80% !important;
+  }
+
+  .corridor-overlay,
+  .corridor-overlay-text {
+    width: 82%;
+  }
+
+  .circles-grid p {
+    width: 280px;
+    margin-left: 20px;
+  }
+}
+
+/* Desktop Large - 1025px to 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .wellness-hero {
+    padding: 100px 7% 70px;
+  }
+
+  .wellness-section {
+    padding: 20px 7% 40px;
+  }
+
+  .hero-strip-final {
+    padding: 35px 5%;
+  }
+}
+
+/* Desktop Extra Large - 1441px and above */
+@media (min-width: 1441px) {
+  .wellness-hero {
+    padding: 130px 8% 80px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  .wellness-section {
+    padding: 20px 8% 40px;
+    max-width: 1600px;
+  }
+
+  .hero-strip-final {
+    max-width: 1600px;
+    margin: 0 auto;
   }
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom"; // Import Link and useLocation
+import { Link, useLocation } from "react-router-dom";
 import "../styles/Nav.css";
 
 const Nav = () => {
@@ -22,9 +22,11 @@ const Nav = () => {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-content">
-        <div className="logo">Portfolio</div>
+        <Link to="/" className="logo">
+          <span className="logo-s">s</span>
+          <span className="logo-h">h</span>
+        </Link>
         <div className="nav-links">
-          {/* Use Link to navigate between routes */}
           <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
           <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>About</Link>
           <Link to="/projects" className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`}>Projects</Link>
