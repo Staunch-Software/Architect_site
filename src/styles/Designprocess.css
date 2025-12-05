@@ -10,7 +10,7 @@
 }
 
 /* -----------------------------------------------------
-   HERO SECTION — CLEAN & ELEGANT
+   HERO SECTION – CLEAN & ELEGANT
 ------------------------------------------------------ */
 .design-hero {
   width: 100%;
@@ -40,6 +40,7 @@
   margin-top: 5px;
   max-width: 800px;
   font-weight: 500;
+  margin-left: 550px;
 }
 
 /* -----------------------------------------------------
@@ -47,130 +48,28 @@
 ------------------------------------------------------ */
 .scroll-stack {
   width: 100%;
-  max-width: 1600px;   /* or whatever big width you use now */
+  max-width: 1600px;
   margin: 40px auto 0 auto;
   display: flex;
-  flex-direction: column;   /* stack cards vertically */
-  gap: 20px;                /* space between cards */
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* -----------------------------------------------------
-   CARDS — PREMIUM WHITE BOXES
+   CARDS – PREMIUM WHITE BOXES
 ------------------------------------------------------ */
 .scroll-stack-card {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 60px;
-
-  width: 80%;               /* not 100%, so left/right is visible */
-  max-width: 1400px;
+  gap: 70px;
   padding: 60px;
   border-radius: 32px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-
-  /* base animation state */
-  opacity: 0;
-  filter: blur(10px);
-  transition: opacity 1s ease-out, transform 1.2s ease-out, filter 1.2s ease-out;
-}
-
-
-.scroll-stack-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ODD cards → box on LEFT */
-.scroll-stack-card:nth-child(odd) {
-  align-self: flex-start;
-}
-
-/* EVEN cards → box on RIGHT */
-.scroll-stack-card:nth-child(even) {
-  align-self: flex-end;
-}
-
-
-
-/* -----------------------------------------------------
-   IMAGES — SMOOTH SHADOW + ROUNDED
------------------------------------------------------- */
-.stack-img {
-  width: 55%;
-  max-width: 700px;
-  height: 350px;        /* uniform height */
-  object-fit: contain;  /* default for all images */
-  border-radius: 20px;
-  box-shadow: none;
-}
-
-/* Crop ONLY Process 3 image */
-.stack-img-1 {
-  object-fit: cover !important;   /* crop only this image */
-  object-position: center;        /* crop from center */
- max-height: 350px;
-}
-
-
-
-/* -----------------------------------------------------
-   CARD TEXT
------------------------------------------------------- */
-.dp-card-content {
-  width: 40%;
-}
-
-.dp-card-title {
-  font-size: 3rem;        /* HUGE TITLE */
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.dp-card-desc {
-  font-size: 1.4rem;      /* BIG PARAGRAPH */
-  line-height: 2;
-  color: #444;
-}
-
-
-
-/* -----------------------------------------------------
-   RESPONSIVE — MOBILE
------------------------------------------------------- */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.3rem;
-  }
-
-  .dp-card-title {
-    font-size: 1.6rem;
-  }
-
-  .dp-card-desc {
-    font-size: 0.95rem;
-  }
-
-  .scroll-stack-card {
-    padding: 20px;
-    margin-bottom: 80px;
-  }
-}
-
-
-.scroll-stack-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 70px;             /* more space between image + text */
-  padding: 60px;         /* BIGGER card padding */
-  border-radius: 32px;   /* bigger rounded edges */
-  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
 
-  max-width: 1300px;     /* big card width */
-  margin: 0 auto 120px;  /* center the big cards */
+  max-width: 1300px;
+  margin: 0 auto 120px;
 
   opacity: 0;
   transform: translateY(65px);
@@ -182,17 +81,53 @@
   transform: translateY(0);
 }
 
+/* -----------------------------------------------------
+   MOVE CONTENT UP FOR SECOND CARD ONLY
+------------------------------------------------------ */
+.scroll-stack-card:nth-child(2) .dp-card-content {
+  margin-top: -40px;
+}
 
+.scroll-stack-card:nth-child(2) .dp-card-title {
+  margin-top: -10px;
+}
 
-.scroll-stack-card .stack-img {
+/* -----------------------------------------------------
+   IMAGES – SMOOTH SHADOW + ROUNDED
+------------------------------------------------------ */
+.stack-img {
   width: 45%;
   max-width: 45%;
   height: auto;
   object-fit: contain;
+  border-radius: 20px;
+  box-shadow: none;
 }
 
-.scroll-stack-card .dp-card-content {
+/* Crop ONLY Process 1 image */
+.stack-img-1 {
+  object-fit: cover !important;
+  object-position: center;
+  max-height: 350px;
+}
+
+/* -----------------------------------------------------
+   CARD TEXT
+------------------------------------------------------ */
+.dp-card-content {
   width: 55%;
+}
+
+.dp-card-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.dp-card-desc {
+  font-size: 1.4rem;
+  line-height: 2;
+  color: #444;
 }
 
 /* Even cards → normal direction (image left) */
@@ -240,16 +175,39 @@
   filter: blur(0);
 }
 
+.scroll-stack-card:nth-child(2) {
+  padding-top: 10px !important;    /* Decrease for shorter height */
+  padding-bottom: 10px !important; /* Decrease for shorter height */
+}
 
 .scroll-stack-card:nth-child(1).visible { transition-delay: 0.1s; }
 .scroll-stack-card:nth-child(2).visible { transition-delay: 0.2s; }
 .scroll-stack-card:nth-child(3).visible { transition-delay: 0.3s; }
 .scroll-stack-card:nth-child(4).visible { transition-delay: 0.4s; }
 
+/* -----------------------------------------------------
+   RESPONSIVE – MOBILE
+------------------------------------------------------ */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.3rem;
+  }
 
-/* ------------------------------------------ */
-/*   LEFT-RIGHT POSITIONING FOR ENTIRE BOX    */
-/* ------------------------------------------ */
+  .dp-card-title {
+    font-size: 1.6rem;
+  }
 
+  .dp-card-desc {
+    font-size: 0.95rem;
+  }
 
+  .scroll-stack-card {
+    padding: 20px;
+    margin-bottom: 80px;
+  }
 
+  .scroll-stack-card:nth-child(2) {
+    max-width: 90% !important;
+    padding: 20px !important;
+  }
+}

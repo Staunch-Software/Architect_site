@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import "../styles/Concrete.css";
+import ProjectNavigation from './ProjectNavigation';
 
 /* ===== IMPORT REAL IMAGES ===== */
 import img2 from "../assets/concreteimg2.jpg";
@@ -48,7 +49,6 @@ const ConcreteBench = () => {
     { id: 19, src: img19, alt: "Concrete Bench Image 19" },
   ];
 
-  // Infinite loop setup — 3 sets of images
   const images = [...originalImages, ...originalImages, ...originalImages];
 
   /* ============================
@@ -72,7 +72,6 @@ const ConcreteBench = () => {
     const elements = document.querySelectorAll("[data-animate-id]");
     elements.forEach((el) => observerRef.current.observe(el));
 
-    // Start at the middle set of images
     const container = scrollContainerRef.current;
     if (container) {
       const imageWidth =
@@ -117,7 +116,7 @@ const ConcreteBench = () => {
     let timeout;
 
     const handleScroll = () => {
-      if (isJumping) return; // stop jitter
+      if (isJumping) return;
 
       clearTimeout(timeout);
       timeout = setTimeout(() => {
@@ -128,20 +127,16 @@ const ConcreteBench = () => {
         const scrollPos = container.scrollLeft;
         const setWidth = imageWidth * originalImages.length;
 
-        // Reached end of middle set → JUMP BACK
         if (scrollPos >= setWidth * 2) {
           isJumping = true;
           container.scrollLeft = scrollPos - setWidth;
           setCurrentImage((prev) => prev - originalImages.length);
-
           setTimeout(() => (isJumping = false), 50);
         }
-        // Reached before middle set → JUMP FORWARD
         else if (scrollPos < setWidth) {
           isJumping = true;
           container.scrollLeft = scrollPos + setWidth;
           setCurrentImage((prev) => prev + originalImages.length);
-
           setTimeout(() => (isJumping = false), 50);
         }
       }, 20);
@@ -184,91 +179,98 @@ const ConcreteBench = () => {
          RENDER UI
   ============================ */
   return (
-    <div className="concrete-page">
+    <>
+      <div className="concrete-page">
 
-      {/* Hero Section */}
-      <section className="concrete-hero">
-        <h1
-          className={`project-title ${visibleElements["title"] ? "slide-active" : ""}`}
-          data-animate-id="title"
-        >
-          Concfab
-        </h1>
-        <p
-          className={`project-subtitle ${visibleElements["subtitle"] ? "slide-active" : ""}`}
-          data-animate-id="subtitle"
-        >
-          Thin shelled concrete bench
-        </p>
-      </section>
-
-      {/* Sketches Section */}
-      <section className="sketches-section">
-        <div
-          className={`sketches-grid ${visibleElements["sketch"] ? "expand-active" : ""}`}
-          data-animate-id="sketch"
-        >
-          <img src={img2} alt="Sketch" className="technical-drawing-image1" />
-        </div>
-      </section>
-
-      {/* Technical Drawings Section */}
-      <section className="technical-section">
-        <div
-          className={`technical-drawing-container ${visibleElements["tech1"] ? "expand-active" : ""}`}
-          data-animate-id="tech1"
-        >
-          <img src={img4} alt="Technical Drawing One" className="technical-drawing-image" />
-        </div>
-
-        <div
-          className={`technical-drawing-container ${visibleElements["tech2"] ? "expand-active" : ""}`}
-          data-animate-id="tech2"
-        >
-          <img src={img20} alt="Technical Drawing Two" className="technical-drawing-image" />
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="gallery-section">
-        <div className="gallery-container">
-
-          {/* Left Button */}
-          <button className="scroll-button left" onClick={() => scroll("left")}>
-            <ChevronLeft size={24} />
-          </button>
-
-          {/* Image Scroll Wrapper */}
-          <div
-            className="images-wrapper"
-            ref={scrollContainerRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            onTouchStart={(e) => handleMouseDown(e.touches[0])}
-            onTouchEnd={handleMouseUp}
-            onTouchMove={(e) => handleMouseMove(e.touches[0])}
+        {/* Hero Section */}
+        <section className="concrete-hero">
+          <h1
+            className={`project-title ${visibleElements["title"] ? "slide-active" : ""}`}
+            data-animate-id="title"
           >
-            {images.map((image, index) => (
-              <div
-                key={`${image.id}-${index}`}
-                className={`gallery-image ${visibleElements[`gallery${index}`] ? "expand-active" : ""}`}
-                data-animate-id={`gallery${index}`}
-              >
-                <img src={image.src} alt={image.alt} />
-              </div>
-            ))}
+            Concfab
+          </h1>
+          <p
+            className={`project-subtitle ${visibleElements["subtitle"] ? "slide-active" : ""}`}
+            data-animate-id="subtitle"
+          >
+            Thin shelled concrete bench
+          </p>
+        </section>
+
+        {/* Sketches Section */}
+        <section className="sketches-section">
+          <div
+            className={`sketches-grid ${visibleElements["sketch"] ? "expand-active" : ""}`}
+            data-animate-id="sketch"
+          >
+            <img src={img2} alt="Sketch" className="technical-drawing-image1" />
+          </div>
+        </section>
+
+        {/* Technical Drawings Section */}
+        <section className="technical-section">
+          <div
+            className={`technical-drawing-container ${visibleElements["tech1"] ? "expand-active" : ""}`}
+            data-animate-id="tech1"
+          >
+            <img src={img4} alt="Technical Drawing One" className="technical-drawing-image" />
           </div>
 
-          {/* Right Button */}
-          <button className="scroll-button right" onClick={() => scroll("right")}>
-            <ChevronRight size={24} />
-          </button>
+          <div
+            className={`technical-drawing-container ${visibleElements["tech2"] ? "expand-active" : ""}`}
+            data-animate-id="tech2"
+          >
+            <img src={img20} alt="Technical Drawing Two" className="technical-drawing-image" />
+          </div>
+        </section>
 
-        </div>
-      </section>
-    </div>
+        {/* Gallery Section */}
+        <section className="gallery-section">
+          <div className="gallery-container">
+
+            {/* Left Button */}
+            <button className="scroll-button left" onClick={() => scroll("left")}>
+              <ChevronLeft size={24} />
+            </button>
+
+            {/* Images */}
+            <div
+              className="images-wrapper"
+              ref={scrollContainerRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onTouchStart={(e) => handleMouseDown(e.touches[0])}
+              onTouchEnd={handleMouseUp}
+              onTouchMove={(e) => handleMouseMove(e.touches[0])}
+            >
+              {images.map((image, index) => (
+                <div
+                  key={`${image.id}-${index}`}
+                  className={`gallery-image ${visibleElements[`gallery${index}`] ? "expand-active" : ""}`}
+                  data-animate-id={`gallery${index}`}
+                >
+                  <img src={image.src} alt={image.alt} />
+                </div>
+              ))}
+            </div>
+
+            {/* Right Button */}
+            <button className="scroll-button right" onClick={() => scroll("right")}>
+              <ChevronRight size={24} />
+            </button>
+
+          </div>
+        </section>
+
+      </div>
+
+      {/* Navigation OUTSIDE the concrete-page */}
+      <ProjectNavigation />
+
+    </>
   );
 };
 

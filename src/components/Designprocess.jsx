@@ -51,20 +51,16 @@ In every project, I strive to create spaces that are more than just functional o
 </div>
 
 {/* CARD 2 */}
-<div className="scroll-stack-card" ref={(el) => (cardsRef.current[1] = el)}>
+<div className="scroll-stack-card second-card" ref={(el) => (cardsRef.current[1] = el)}>
   <img src={img2} alt="Step 2" className="stack-img" />
   <div className="dp-card-content">
     <h2 className="dp-card-title">Form Follows Function: The Enduring Principle of Great Architecture
 </h2>
     <p className="dp-card-desc">Following Louis Sullivan’s timeless principle, form follows function, my design process begins with the journey of the user. I study how people move, interact, and feel within a space, allowing these insights to naturally inform the shape and character of my architecture.
 
-​
-
 My goal is to create spaces that evoke emotion, support functionality, and offer effortless navigation—spaces that guide rather than confuse, comfort rather than overwhelm.
 
 I start by brainstorming and gathering detailed information about all required spaces. This includes developing precise measurements, analyzing area requirements, and ensuring that every square foot is intentionally used rather than wasted. By doing so, I make sure that each space not only serves its purpose but also enhances the user’s experience.
-
-​
 
 Ultimately, my design philosophy centers on crafting environments where users feel connected, comfortable, and grounded.</p>
   </div>

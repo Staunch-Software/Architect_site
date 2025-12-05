@@ -7,27 +7,30 @@ const ProjectNavigation = () => {
   const location = useLocation();
 
   // Correct project paths based on App.jsx
-  const projects = [
-    "/projects/1",  // Wellness
-    "/projects/2",  // Leaf Life Hub
-    "/projects/3",  // Cascadia
-    "/projects/4",  // Echo
-    "/projects/5",  // Concrete
-  ];
+ const projects = [
+  "/projects/1",  // Wellness
+  "/projects/2",  // Leaf Life Hub
+  "/projects/3",  // Cascadia
+  "/projects/5",  // Concrete (Concfab)
+  "/projects/4",  // Echo to Embrace
+];
 
-  const currentIndex = projects.indexOf(location.pathname);
+console.log("CURRENT PATH:", location.pathname);
 
-  const goPrev = () => {
-    const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
-    navigate(projects[prevIndex]);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
-  const goNext = () => {
-    const nextIndex = (currentIndex + 1) % projects.length;
-    navigate(projects[nextIndex]);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+ const currentId = location.pathname.split("/").filter(Boolean).pop(); 
+const currentIndex = projects.indexOf(`/projects/${currentId}`);
+
+const goPrev = () => {
+  const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+  navigate(projects[prevIndex]);
+};
+
+const goNext = () => {
+  const nextIndex = (currentIndex + 1) % projects.length;
+  navigate(projects[nextIndex]);
+};
+
 
   const backToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

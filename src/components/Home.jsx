@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 import '../styles/Home.css';
 import aboutImg from '../assets/abt.jpg'; 
 import Lanyard from './Lanyard';
+
 
 // Project Images
 import img1 from "../assets/img1.jpg";
@@ -37,57 +40,27 @@ const useIntersectionObserver = (options = {}) => {
   return [elementRef, isVisible];
 };
 
-// TextType Component
+// TextType Component - Updated Simple Version
 const TextType = ({
-  text = [],
+  text = '',
   typingSpeed = 75,
-  pauseDuration = 1500,
   showCursor = true,
   cursorCharacter = "|",
-  onComplete,                   // ✅ NEW PROP
+  onComplete
 }) => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(true);
-  const [hasCompleted, setHasCompleted] = useState(false); // ✅ NEW STATE
 
   useEffect(() => {
-    const textArray = Array.isArray(text) ? text : [text];
-    const fullText = textArray[currentTextIndex] || '';
-
-    let timeout;
-
-    // 🆕 If we've finished once, don't type/delete anymore
-    if (hasCompleted) {
-      return;
+    if (currentText.length < text.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText(text.substring(0, currentText.length + 1));
+      }, typingSpeed);
+      return () => clearTimeout(timeout);
+    } else if (onComplete && currentText === text) {
+      onComplete();
     }
-
-    // ✅ When typing of full text is finished, call onComplete ONCE and stop
-    if (!hasCompleted && !isDeleting && currentText === fullText) {
-      if (onComplete) onComplete();
-      setHasCompleted(true);
-      return; // stop further typing / deleting
-    }
-
-    if (!isDeleting && currentText === fullText) {
-      timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
-    } else if (isDeleting && currentText === '') {
-      setIsDeleting(false);
-      setCurrentTextIndex((prev) => (prev + 1) % textArray.length);
-    } else {
-      const speed = isDeleting ? typingSpeed / 2 : typingSpeed;
-      timeout = setTimeout(() => {
-        setCurrentText(prev =>
-          isDeleting
-            ? fullText.substring(0, prev.length - 1)
-            : fullText.substring(0, prev.length + 1)
-        );
-      }, speed);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, currentTextIndex, text, typingSpeed, pauseDuration, hasCompleted, onComplete]);
+  }, [currentText, text, typingSpeed, onComplete]);
 
   useEffect(() => {
     if (!showCursor) return;
@@ -117,8 +90,9 @@ const AboutSection = () => {
   const [textRef, textVisible] = useIntersectionObserver();
   const [descRef, descVisible] = useIntersectionObserver();
   const [imageRef, imageVisible] = useIntersectionObserver();
-  const [btn1Ref, btn1Visible] = useIntersectionObserver();
-  const [btn2Ref, btn2Visible] = useIntersectionObserver();
+
+  const navigate = useNavigate();
+
 
   return (
     <div id="about" className="home-about-section">
@@ -137,6 +111,8 @@ const AboutSection = () => {
           >
             Hi, I'm Sehba. A Recent Graduate from Savannah College of Arts and design with a Professional Master of Architecture degree, with a passion for all kinds of Design.
           </p>
+
+      
         </div>
 
         {/* Bottom Section */}
@@ -161,6 +137,13 @@ const AboutSection = () => {
             >
               Passionate for any forms of Design, with a focus on User-Centered, thoughtful and sustainable solutions. I strive to create experiences that are meaningful, accessible, and built to endure. Click to know more about me and my design process.
             </p>
+<button
+  className="about-btn"
+  onClick={() => navigate("/about")}
+>
+  About Me
+</button>
+
           </div>
         </div>
       </div>
@@ -173,14 +156,14 @@ const sections = [
   {
     id: "project-1",
     img: img4,
-    title: "Holistic Reality",
+    title: "A Holistic Retreat that supports the transition into Motherhood",
     text: "A Wellness Center is designed as a restorative architectural environment that promotes physical, emotional, and mental well-being. Through natural materials, soft lighting, and calming spatial flow, it creates a sanctuary where users can unwind, rejuvenate, and reconnect with themselves.",
-    style: { height: "350px", width: "85%" }
+    style: { height: "300px", width: "85%" }
   },
   {
     id: "project-2",
     img: img1,
-    title: "Leaf-Life HUB",
+    title: "Leaf-Life Hub",
     text: "leaf-life hub is a food recycling center committed to regeneration. by collecting and processing food waste from restaurants and residents, it transforms discarded materials into nutrient-rich fertilizers that help restore soil and support local agriculture.",
     style: { height: "350px", width: "90%" }
   },
@@ -193,17 +176,17 @@ const sections = [
   },
   {
     id: "project-4",
-    img: img2,
-    title: "Echo and Embrace",
-    text: "The form of the building embraces soft curves, natural textures, and open spatial planning to evoke calmness and balance. Nature is integrated as a core element—not an addition—transforming the center into a living sanctuary where each space supports mindfulness, relaxation, and rejuvenation.",
-    style: { height: "350px" }
+    img: img3,
+    title: "Concfab",
+    text: "Concrete is a versatile architectural material valued for its strength, durability, and sculptural flexibility. It allows architects to create bold structural forms, clean lines, and seamless surfaces while offering excellent thermal mass and long-term resilience.",
+    style: { height: "350px", width: "90%", margintop: "50%" }
   },
   {
     id: "project-5",
-    img: img3,
-    title: "Concrete",
-    text: "Concrete is a versatile architectural material valued for its strength, durability, and sculptural flexibility. It allows architects to create bold structural forms, clean lines, and seamless surfaces while offering excellent thermal mass and long-term resilience.",
-    style: { height: "350px", width: "90%", margintop: "50%" }
+    img: img2,
+    title: "Echo to Embrace",
+    text: "The form of the building embraces soft curves, natural textures, and open spatial planning to evoke calmness and balance. Nature is integrated as a core element—not an addition—transforming the center into a living sanctuary where each space supports mindfulness, relaxation, and rejuvenation.",
+    style: { height: "350px", width: "90%" }
   },
 ];
 
@@ -265,9 +248,7 @@ const ProjectScrollStory = () => {
 const Home = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const heroRef = useRef(null);
-
-  // ✅ NEW STATE to control when "Architecture Designer" shows
-  const [showJobTitle, setShowJobTitle] = useState(false);
+  const [typingComplete, setTypingComplete] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -288,7 +269,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Hero Section - UPDATED CLASS NAME */}
+      {/* Hero Section - UPDATED */}
       <section ref={heroRef} className="home-hero-section hero-reveal">
         <div className="bg-circle bg-circle-1 floating-circle pulse-circle"></div>
         <div className="bg-circle bg-circle-2 floating-circle"></div>
@@ -306,32 +287,20 @@ const Home = () => {
         <div className="hero-content-wrapper">
           <div className="hero-content">
             <h1 className="hero-title">
-              <span className="greeting text-reveal">
-                <div className="hero-title-block">
+              <div className="greeting text-reveal">
+                <div className="typing-line hero-main-text">
                   <TextType
-                    text={["Hi, I'm Sehba Hussaina"]}
-                    typingSpeed={150}
-                    pauseDuration={1500}
+                    text="Hi, It's Sehba"
+                    typingSpeed={100}
                     showCursor={false}
-                    onComplete={() => setShowJobTitle(true)}  // ✅ SHOW TITLE AFTER TYPING
+                    onComplete={() => setTypingComplete(true)}
                   />
-                  {showJobTitle && (
-                    <div className="job-title slide-up">
-                      Architecture Designer
-                    </div>
-                  )}
                 </div>
-              </span>
+                <div className={`subtitle-text hero-subtitle ${typingComplete ? 'subtitle-visible' : ''}`}>
+                  Architecture Designer
+                </div>
+              </div>
             </h1>
-          </div>
-
-          <div className="hero-lanyard">
-            <Lanyard
-              position={[0, 4, 30]}
-              gravity={[0, -40, 0]}
-              fov={20}
-              transparent={true}
-            />
           </div>
         </div>
       </section>

@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/About.css";
+import { useNavigate } from "react-router-dom";
+import Designprocess from "./Designprocess";
+import resumeFile from "../assets/resume.jpg"; 
+
+
 
 // Import images
 import abt1 from "../assets/abt1.jpg";
@@ -36,6 +41,9 @@ const About = () => {
       }
     };
   }, []);
+
+  const navigate = useNavigate();
+
 
   return (
     <div className="about-page-wrapper">
@@ -139,8 +147,21 @@ const About = () => {
           </p>
      
         <div className="about-buttons">
-  <button className="about-btn">Resume</button>
-  <button className="about-btn">Design Process</button></div>
+ <a 
+  href={resumeFile} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="about-btn"
+>
+  Resume
+</a>
+
+  <button 
+  className="about-btn"
+  onClick={() => navigate("/designprocess")}>
+  Design Process
+</button>
+</div>
   
 </div>
       </div>

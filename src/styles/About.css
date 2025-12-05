@@ -24,8 +24,7 @@
 .about-page-wrapper .about-title {
   text-align: center;
   font-size: 50px;
-  margin-bottom: 50px;
-  margin-top: 35px;
+  margin-top: 80px;
   font-weight: 500;
   font-family: "Georgia", serif;
   color: #000;
@@ -136,11 +135,10 @@
 }
 
 .about-btn:hover {
-  background-color: #740f63;
+  background-color: #4a1c6b;
   color: #ffffff;
-  border-color: #a019a7;
+  border-color: #4a1c6b;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 27, 141, 0.3);
 }
 
 /* EXPERIENCE SECTION */
@@ -160,7 +158,15 @@
   gap: 60px;
 }
 
-.exp-left-col { display: flex; flex-direction: column; gap: 360px; }
+.exp-left-col  .education-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 110px;   /* ⭐ This pushes “Education” exactly to the second row */
+  margin-top: -20px;
+}
+
+
 .exp-title { font-size: 42px; font-weight: 600; }
 .exp-right-col { display: flex; flex-direction: column; gap: 40px; }
 .exp-row { display: flex; gap: 40px; margin-bottom: 20px; }
@@ -444,6 +450,7 @@
   flex-wrap: wrap;
 }
 
+
 .about-btn {
   background-color: transparent;
   color: #000000;
@@ -457,6 +464,7 @@
   text-decoration: none;
   display: inline-block;
   font-family: inherit;
+
 }
 
 .about-btn:hover {
@@ -514,7 +522,7 @@
   .about-title {
     font-size: 28px !important;
     margin-bottom: 30px !important;
-    margin-top: 20px !important;
+    margin-top: 70px !important;
     padding: 0 5%;
   }
 
@@ -635,7 +643,7 @@
   .about-title {
     font-size: 38px !important;
     margin-bottom: 40px !important;
-    margin-top: 25px !important;
+    margin-top: 85px !important;
   }
 
   .about-page-container {
@@ -746,7 +754,7 @@
 
   .about-title {
     font-size: 44px !important;
-    margin-bottom: 45px !important;
+    margin-bottom: 65px !important;
   }
 
   .about-page-container {
@@ -862,6 +870,9 @@
     gap: 360px;
   }
 }
+.about-title {
+  margin-top: 40px;
+  }
 
 /* Desktop Large - 1441px and above */
 @media (min-width: 1441px) {
@@ -880,6 +891,10 @@
     grid-template-rows: repeat(3, 170px);
   }
 }
+
+.about-title {
+  margin-top: 40px;
+  }
 
 /* Extra adjustments for very small devices */
 @media (max-width: 360px) {

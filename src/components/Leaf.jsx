@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'; 
 import '../styles/Leaf.css';
+import ProjectNavigation from './ProjectNavigation';
 
 import Leaf1 from "../assets/leafimg1.jpg";
 import Leaf2 from "../assets/leafimg2.jpg";
@@ -49,6 +50,25 @@ import Leaf48 from "../assets/leafimg48.jpg";
 import Leaf51 from "../assets/leafimg51.jpg";
 import Leaf52 from "../assets/leafimg52.jpg";
 import Leaf53 from "../assets/leafimg53.jpg";
+import Leaf60 from "../assets/leafimg60.jpg";
+import Leaf61 from "../assets/leafimg61.jpg";
+import Leaf62 from "../assets/leafimg62.jpg";
+import Leaf63 from "../assets/leafimg63.jpeg";
+import Leaf64 from "../assets/leafimg64.jpeg";
+import Leaf65 from "../assets/leafimg65.jpeg";
+import Leaf80 from "../assets/leafimg80.jpeg";
+import Leaf81 from "../assets/leafimg81.jpeg";
+import Leaf85 from "../assets/leafimg85.jpeg";
+import Leaf86 from "../assets/leafimg86.jpeg";
+import Leaf88 from "../assets/leafimg88.jpeg";
+import Leaf89 from "../assets/leafimg89.jpeg";
+import Leaf90 from "../assets/leafimg90.jpeg";
+import Leaf91 from "../assets/leafimg91.jpeg";
+import Leaf92 from "../assets/leafimg92.jpeg";
+import Leaf99 from "../assets/leafimg99.jpeg";
+import Leaf95 from "../assets/leafimg95.jpeg";
+import Leaf96 from "../assets/leafimg96.jpeg";
+
 
 export default function LeafLifeHub() {
   const technicalScrollRef = useRef(null);
@@ -165,9 +185,31 @@ export default function LeafLifeHub() {
               <img src={Leaf14} className="grid-image1" alt="Process 1" />
             </div>
 
-            <div className="grid-item">
-              <img src={Leaf10} className="grid-image2" alt="Process 2" />
-            </div>
+            <div className="circular-stats-container">
+   <div className="grid-item fade-in-1">
+    <img 
+      src={Leaf61} 
+      className="grid-image2" 
+      alt="Workshop Users" 
+    />
+   </div>
+    
+   <div className="grid-item fade-in-2">
+    <img 
+      src={Leaf60} 
+      className="grid-image2" 
+      alt="Workers" 
+    />
+     </div>
+  
+    <div className="grid-item fade-in-3">
+    <img 
+      src={Leaf62} 
+      className="grid-image2" 
+      alt="Farmers Market Users" 
+    />
+     </div>
+  </div>
 
             <div className="grid-item">
               <img src={Leaf15} className="grid-image3" alt="Process 3" />
@@ -198,7 +240,7 @@ export default function LeafLifeHub() {
         </div>
       </div>
 
-      {/* 10 IMAGE STACK */}
+ {/* 10 IMAGE STACK */}
       <div className="ten-images-stack">
         <img 
     src={Leaf46}
@@ -222,48 +264,88 @@ export default function LeafLifeHub() {
     </p>
   </div>
 </div>
+
         <img 
           src={Leaf7} 
           className={`stack-image ${visibleElements["stack1"] ? "float-in-active" : ""}`}
           data-animate-id="stack1"
           alt="" 
         />
-        <div className="three-column-images">
-          <div className="column-left">
-            <img 
-              src={Leaf31} 
-              className={`stack-image ${visibleElements["stack-left"] ? "float-in-active" : ""}`}
-              data-animate-id="stack-left"
-              alt="Vegetative area statistics" 
-            />
-          </div>
-          
-          <div className="column-middle">
-            <img 
-              src={Leaf30} 
-              className={`stack-image ${visibleElements["stack-middle"] ? "float-in-active" : ""}`}
-              data-animate-id="stack-middle"
-              alt="Site zones and layout" 
-            />
-          </div>
-          
-          <div className="column-right">
-            <img 
-              src={Leaf32} 
-              className={`stack-image ${visibleElements["stack-right"] ? "float-in-active" : ""}`}
-              data-animate-id="stack-right"
-              alt="Community engagement metrics" 
-            />
-          </div>
-        </div>
+    <div className="three-column-images">
+  <div className="column-left">
+    <div className="triple-stack-wrapper">
+      <div className="triple-stack-box">
+        <img 
+          src={Leaf65} 
+          className={`stack-image ${visibleElements["stack-left-1"] ? "fade-in-active" : ""}`}
+          data-animate-id="stack-left-1"
+          alt="Vegetative area statistics" 
+        />
+      </div>
+      <div className="triple-stack-box">
+        <img 
+          src={Leaf64} 
+          className={`stack-image ${visibleElements["stack-left-2"] ? "fade-in-active" : ""}`}
+          data-animate-id="stack-left-2"
+          alt="Additional statistics" 
+        />
+      </div>
+      <div className="triple-stack-box">
+        <img 
+          src={Leaf63} 
+          className={`stack-image ${visibleElements["stack-left-3"] ? "fade-in-active" : ""}`}
+          data-animate-id="stack-left-3"
+          alt="More statistics" 
+        />
+      </div>
+    </div>
+  </div>
+  
+  <div className="column-middle">
+    <img 
+      src={Leaf30} 
+      className={`stack-image ${visibleElements["stack-middle"] ? "float-in-active" : ""}`}
+      data-animate-id="stack-middle"
+      alt="Site zones and layout" 
+    />
+  </div>
+  
+  <div className="column-right">
+    <div className="vertical-image-stack">
+      <div className="vertical-stack-element">
+        <img 
+          src={Leaf90} 
+          className={`stack-image ${visibleElements["stack-right-1"] ? "fade-in-active" : ""}`}
+          data-animate-id="stack-right-1"
+          alt="Community engagement metrics" 
+        />
+      </div>
+      <div className="vertical-stack-element">
+        <img 
+          src={Leaf91} 
+          className={`stack-image ${visibleElements["stack-right-2"] ? "fade-in-active" : ""}`}
+          data-animate-id="stack-right-2"
+          alt="Additional metrics" 
+        />
+      </div>
+      <div className="vertical-stack-element">
+        <img 
+          src={Leaf92} 
+          className={`stack-image ${visibleElements["stack-right-3"] ? "fade-in-active" : ""}`}
+          data-animate-id="stack-right-3"
+          alt="More metrics" 
+        />
+      </div>
+    </div>
+  </div>
+</div>
         <img 
   src={Leaf42}
   className={`stack-image ${visibleElements["stack1.5"] ? "float-in-active" : ""}`}
   data-animate-id="stack1.5"
   alt=""
 />
-        
-        
+         
         {/* 3rd Image with Permaculture Content */}
         <div 
           className={`image-with-content ${visibleElements["permaculture"] ? "float-in-active" : ""}`}
@@ -300,26 +382,37 @@ export default function LeafLifeHub() {
             </div>
           </div>
         </div>
-
-        <div className="two-column-layout">
-          <div className="two-col-left">
-            <img  
-              src={Leaf34}  
-              className={`stack-image ${visibleElements["stack4"] ? "float-in-active" : ""}`} 
-              data-animate-id="stack4" 
-              alt="Design for change"  
-            />
-          </div>
-          
-          <div className="two-col-right">
-            <img  
-              src={Leaf33}  
-              className={`stack-image ${visibleElements["stack5"] ? "float-in-active" : ""}`} 
-              data-animate-id="stack5" 
-              alt="Building lifespan"  
-            />
-          </div>
-        </div>
+<div className="two-column-layout">
+  <div className="two-col-left">
+    <img  
+      src={Leaf34}  
+      className={`stack-image ${visibleElements["stack4"] ? "float-in-active" : ""}`} 
+      data-animate-id="stack4" 
+      alt="Design for change"  
+    />
+  </div>
+  
+  <div className="two-col-right">
+    <div className="dual-image-container">
+      <div className="dual-image-row">
+        <img  
+          src={Leaf88}  
+          className={`stack-image ${visibleElements["stack21"] ? "fade-in-active" : ""}`} 
+          data-animate-id="stack21" 
+          alt="Building lifespan"  
+        />
+      </div>
+      <div className="dual-image-row">
+        <img  
+          src={Leaf89}  
+          className={`stack-image ${visibleElements["stack22"] ? "fade-in-active" : ""}`} 
+          data-animate-id="stack22" 
+          alt="Reusable floor area"  
+        />
+      </div>
+    </div>
+  </div>
+</div>
 
         
         <img 
@@ -330,43 +423,138 @@ export default function LeafLifeHub() {
         />
 
         <div className="two-column-split">
-          <div className="split-left">
-            <img 
-              src={Leaf36} 
-              className={`stack-image ${visibleElements["stack7"] ? "float-in-active" : ""}`}
-              data-animate-id="stack7"
-              alt="" 
-            />
-          </div>
-          
-          <div className="split-right">
-            <img 
-              src={Leaf37} 
-              className={`stack-image ${visibleElements["stack8"] ? "float-in-active" : ""}`}
-              data-animate-id="stack8"
-              alt="" 
-            />
-          </div>
-        </div>
+  <div className="split-left">
+    <img 
+      src={Leaf36} 
+      className={`stack-image ${visibleElements["stack7"] ? "float-in-active" : ""}`}
+      data-animate-id="stack7"
+      alt="" 
+    />
+  </div>
+  
+  <div className="split-right">
+    <div className="split-right-row">
+      <img 
+        src={Leaf85} 
+        className={`stack-image ${visibleElements["stack7.5"] ? "fade-in-active" : ""}`}
+        data-animate-id="stack7.5"
+        alt="" 
+      />
+    </div>
+    <div className="split-right-row">
+      <img 
+        src={Leaf86} 
+        className={`stack-image ${visibleElements["stack8.5"] ? "fade-in-active" : ""}`}
+        data-animate-id="stack8.5"
+        alt="" 
+      />
+    </div>
+  </div>
+</div>
         
+  <div
+  className={`wellness-image-wrapper ${visibleElements["stack9"] ? "float-in-active" : ""}`}
+  data-animate-id="stack9"
+>
+  {/* Base image without circles */}
+  <div
+  className={`wellness-image-wrapper ${visibleElements["stack9"] ? "float-in-active" : ""}`}
+  data-animate-id="stack9"
+>
+  {/* Base image */}
+  <img
+    src={Leaf1}
+    className="stack-image wellness-image-base"
+    alt="Design for wellness"
+  />
+
+  {/* 3 separate white masks hiding the old circles */}
+  <div className="wellness-mask wellness-mask-1" />
+  <div className="wellness-mask wellness-mask-2" />
+  <div className="wellness-mask wellness-mask-3" />
+
+  {/* 3 new circles (you can move each via CSS) */}
+  <div className="wellness-circles">
+    <div className="wellness-circle wellness-circle-1">
+      <span className="wellness-circle-percent">89%</span>
+      <span className="wellness-circle-text">Quality views</span>
+    </div>
+
+    <div className="wellness-circle wellness-circle-2">
+      <span className="wellness-circle-percent">70%</span>
+      <span className="wellness-circle-text">Daylight autonomy</span>
+    </div>
+
+    <div className="wellness-circle wellness-circle-3">
+      <span className="wellness-circle-percent">80%</span>
+      <span className="wellness-circle-text">Operable windows</span>
+    </div>
+  </div>
+</div>
+
+</div>
+<div
+  className={`economy-image-wrapper ${visibleElements["stack10"] ? "float-in-active" : ""}`}
+    data-animate-id="stack10"
+>
+    {/* Leaf6 image */}
+    <img
+      src={Leaf6}
+      className={`stack-image economy-image-base ${visibleElements["stack10"] ? "float-in-active" : ""}`}
+      alt="Design for Economy"
+    />
+
+    {/* Circle as a separate element */}
+    <div className="economy-circle">
+      <div className="economy-circle-inner">
+        <span className="economy-circle-percent">40%</span><br></br>
+        <span className="economy-circle-text">
+          REDUCTION OF<br />CONSTRUCTION COST
+        </span>
+      </div>
+    </div>
+  </div>
+
+<div className="stack-container">
+  <div className="stack-column stack-left">
+    <img 
+      src={Leaf81} 
+      className={`stack-image ${visibleElements["stack11"] ? "float-in-active" : ""}`}
+      data-animate-id="stack11"
+      alt="Left image" 
+    />
+  </div>
+<div className="stack-column stack-right">
+  <div className="stack-right-wrapper">
+    <div className="stack-right-row">
+      <img 
+        src={Leaf99} 
+        className={`stack-image ${visibleElements["stack20"] ? "fade-in-active" : ""}`}
+        data-animate-id="stack20"
+        alt="Right image top" 
+      />
+    </div>
+    <div className="stack-right-row stack-double-column">
+      <div className="stack-col-item">
         <img 
-          src={Leaf1} 
-          className={`stack-image ${visibleElements["stack9"] ? "float-in-active" : ""}`}
-          data-animate-id="stack9"
-          alt="" 
+          src={Leaf95} 
+          className={`stack-image ${visibleElements["stack00"] ? "fade-in-active" : ""}`}
+          data-animate-id="stack00"
+          alt="Right image bottom left" 
         />
+      </div>
+      <div className="stack-col-item">
         <img 
-          src={Leaf6} 
-          className={`stack-image ${visibleElements["stack10"] ? "float-in-active" : ""}`}
-          data-animate-id="stack10"
-          alt="" 
+          src={Leaf96} 
+          className={`stack-image ${visibleElements["stack01"] ? "fade-in-active" : ""}`}
+          data-animate-id="stack01"
+          alt="Right image bottom right" 
         />
-        <img 
-          src={Leaf5} 
-          className={`stack-image ${visibleElements["stack11"] ? "float-in-active" : ""}`}
-          data-animate-id="stack11"
-          alt="" 
-        />
+      </div>
+    </div>
+  </div>
+</div>
+</div>
         <img 
           src={Leaf44} 
           className={`stack-image ${visibleElements["stack11.5"] ? "float-in-active" : ""}`}
@@ -434,18 +622,8 @@ export default function LeafLifeHub() {
         </div>
       </div>
       {/* --------------------------- PAGE NAVIGATION BUTTONS --------------------------- */}
-      <section className="echo-page-navigation-1">
-  <button className="echo-page-nav-btn echo-prev-page prev-btn-unique">
-    <span>‹</span>
-  </button>
-</section>
 
-<section className="echo-page-navigation-1">
-  <button className="echo-page-nav-btn echo-next-page next-btn-unique">
-    <span>›</span>
-  </button>
-</section>
-
+     <ProjectNavigation />
       
 
     </div>

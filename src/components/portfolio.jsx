@@ -1,13 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../styles/portfolio.css';
+
+// Import your project images
+import img1 from "../assets/wellness-hero.jpg"; // Concrete/Installation image
+import img2 from "../assets/leafimg17.jpg"; // Holistic Retreat/Wellness Center
+import img3 from "../assets/cascadia2.jpg"; // Echo to Embrace
+import img4 from "../assets/echoimg5.jpg"; // LeafLife Hub
+import img5 from "../assets/concreteimg17.jpg"; // Cascadia
 
 const Portfolio = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [visibleProjects, setVisibleProjects] = useState(new Set());
   
   const cardRefs = useRef([]);
-  const navigate = useNavigate(); // Initialize hook
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,39 +43,35 @@ const Portfolio = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Updated to 5 Projects matching your specific files
+  // Updated projects array with your images
   const projects = [
     {
       id: 1,
-      title: "Holistic Retreat",
-      category: "Wellness",
-      // You can replace these URLs with your specific project thumbnails if you have them imported
-      image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop"
+      title: "A Holistic Retreat that supports the transition into Motherhood",
+      
+      image: img1 // Wellness Center rendering
     },
     {
       id: 2,
-      title: "LeafLife Hub",
-      category: "Sustainability",
-      image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&h=600&fit=crop"
+      title: "Leaf-Life Hub",
+      image: img2 // Modern building with green roof
     },
     {
       id: 3,
       title: "Cascadia",
-      category: "Residential",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop"
+      image: img3 // Residential complex near water
     },
-    {
-      id: 4,
-      title: "Echo to Embrace",
-      category: "Installation",
-      image: "https://images.unsplash.com/photo-1519915212116-7cfef71f1d3e?w=800&h=600&fit=crop"
-    },
+  
     {
       id: 5,
       title: "Concfab",
-      category: "Fabrication",
-      image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&h=600&fit=crop"
-    }
+      image: img5 // Concrete bench/seating installation
+    },
+      {
+      id: 4,
+      title: "Echo to Embrace",
+      image: img4 // Curved concrete walls installation
+    },
   ];
 
   // Handle Navigation
@@ -81,7 +84,7 @@ const Portfolio = () => {
       <div className="portfolio-header">
         <h1 className="portfolio-title">My Projects</h1>
         <p className="portfolio-subtitle">
-           Explore my works to learn more about what I do.
+          Explore my works to learn more about what I do.
         </p>
       </div>
 
@@ -94,7 +97,7 @@ const Portfolio = () => {
             className={`portfolio-card ${visibleProjects.has(project.id) ? 'loaded' : ''} ${hoveredCard === project.id ? 'hovered' : ''}`}
             onMouseEnter={() => setHoveredCard(project.id)}
             onMouseLeave={() => setHoveredCard(null)}
-            onClick={() => handleProjectClick(project.id)} // Add Click Event
+            onClick={() => handleProjectClick(project.id)}
             style={{ animationDelay: `${(index % 2) * 0.1}s` }}
           >
             <div className="card-image-wrapper">

@@ -1,3 +1,4 @@
+/* ========== KEYFRAME ANIMATIONS ========== */
 @keyframes circularReveal {
   0% { clip-path: circle(0% at 50% 50%); }
   100% { clip-path: circle(150% at 50% 50%); }
@@ -23,32 +24,80 @@
   100% { clip-path: inset(0 0 0 0); }
 }
 
+@keyframes subtitleFadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 /* Animation Classes */
 .hero-reveal { animation: circularReveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
 .text-reveal { animation: textFadeIn 1s ease-out 0.5s forwards; opacity: 0; }
 .floating-circle { animation: float 6s ease-in-out infinite; }
 .pulse-circle { animation: pulse 3s ease-in-out infinite; }
 
-/* Typing Text Effect */
+/* ========== TYPING TEXT EFFECT ========== */
 .text-type { display: inline-block; white-space: pre-wrap; }
 .text-type__cursor { margin-left: 0.25rem; display: inline-block; opacity: 1; }
 .text-type__cursor--hidden { opacity: 0; }
 
-/* Home Container */
+/* Subtitle Text */
+.subtitle-text {
+  display: block;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: none;
+}
+
+.subtitle-text.subtitle-visible {
+  animation: subtitleFadeIn 0.8s ease-out forwards;
+}
+
+.typing-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero main text - cursive and large */
+.hero-main-text {
+  font-family: 'Great Vibes', cursive !important; /* or your custom font */
+  font-size: 4.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+ .text-type {
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 4.5rem !important;
+  font-weight: 400;
+}
+
+/* Subtitle - smaller than main text */
+.hero-subtitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ========== HOME CONTAINER ========== */
 .home-container {
   min-height: 100vh;
   background-color: #000000;
   font-family: 'Butler', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Hero Section - RENAMED TO AVOID CONFLICT */
+/* ========== HERO SECTION ========== */
 .home-hero-section {
   position: relative;
   min-height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg,rgba(173, 12, 141, 0.99) 0%, rgba(32, 3, 36, 1) 60%);
+  background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 25%, #4a1c6b 50%, #1a0b2e 100%);
   padding: 8rem 4rem 4rem;
   padding-top: 0rem;
   overflow: hidden;
@@ -63,7 +112,13 @@
 }
 
 /* Background Circles */
-.bg-circle { position: absolute; border-radius: 50%; background: rgba(255, 27, 141, 0.15); pointer-events: none; }
+.bg-circle { 
+  position: absolute; 
+  border-radius: 50%; 
+  background: linear-gradient(135deg, #6b46c1 0%, #9333ea 100%);
+  opacity: 0.15;
+  pointer-events: none; 
+}
 .bg-circle-1 { width: 400px; height: 400px; top: -100px; left: -100px; }
 .bg-circle-2 { width: 300px; height: 300px; bottom: 50px; right: 100px; animation-delay: 2s; }
 .bg-circle-3 { width: 250px; height: 250px; top: 40%; right: -50px; animation-delay: 1s; }
@@ -75,7 +130,7 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 27, 141, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(107, 70, 193, 0.3) 0%, transparent 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease-out;
@@ -92,12 +147,30 @@
   z-index: 2;
 }
 
-.hero-content { text-align: center; }
-.hero-title { margin: 0; padding: 0; }
-.greeting { display: block; font-size: 3rem; font-weight: 500; color: #ffffff; margin-bottom: 1rem; }
+.hero-content { 
+  text-align: center;
+  width: 100%;
+}
+
+.hero-title { 
+  margin: 0; 
+  padding: 0; 
+}
+
+.greeting { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3rem; 
+  font-weight: 500; 
+  color: #ffffff; 
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
 .hero-lanyard { width: 100%; height: 600px; display: none; }
 
-/* Home About Section */
+/* ========== ABOUT SECTION ========== */
 .home-about-section {
   background-color: #FFFDF7;
   color: #000000;
@@ -147,7 +220,15 @@
   animation: revealImage 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 
-.home-about-image { width: 360px; height: auto; object-fit: cover; border-radius: 8px;margin-left:10%; filter:grayscale(100%);transition: 0.4s ease; }
+.home-about-image { 
+  width: 360px; 
+  height: 90%; 
+  object-fit: cover; 
+  border-radius: 8px;
+  margin-left: 10%; 
+  filter: grayscale(100%);
+  transition: 0.4s ease; 
+}
 .home-about-image:hover {
   filter: grayscale(0%);
 }
@@ -190,15 +271,40 @@
   transform: translateY(-2px);
 }
 
-/* ========== PROJECTS SECTION STYLES (Merged from Projects.css) ========== */
-/* 
-* {
-  overflow: visible !important;
-} */
+/* BUTTONS SECTION */
+.about-btn {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
 
+.about-btn {
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+  width: 200px;
+}
+
+.about-btn:hover {
+  background-color: #4a1c6b;
+  color: #ffffff;
+  border-color: #4a1c6b;
+  transform: translateY(-2px);
+}
+
+/* ========== PROJECTS SECTION ========== */
 .story-wrapper {
   width: 100%;
-  padding-top: 80px;
   background: #000000;
 }
   
@@ -206,7 +312,7 @@
   text-align: center;
   font-size: 52px;
   font-weight: 800;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   color: #ffffff;
 }
 
@@ -217,10 +323,20 @@
 
 /* BLOCK */
 .story-section {
-  height: 50vh;
+  min-height: 50vh;
   position: relative;
-  gap:10px;
-  margin-bottom: 40px;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.story-content {
+  margin: 0;
+  padding: 0;
+}
+
+.story-image {
+  margin: 0;
 }
 
 /* TITLE */
@@ -237,7 +353,6 @@
   display: none;
   gap: 10px;
   padding-top: 80px;
-  /* disabled because new wrapper takes over */
 }
 
 .sticky-image {
@@ -250,14 +365,16 @@
 /* RIGHT TEXT */
 .story-text {
   position: absolute;
+  color: #ffffff;
   right: 6%;
-  top: 20%;
+  top: 10%;
   width: 42%;
   transform: translateY(-40%);
+  transition: transform 0.4s linear;
 }
 
 .story-text p {
-  font-size: 20px;
+  font-size: 30px;
   line-height: 1.7;
   color: #ffffff;
 }
@@ -270,41 +387,679 @@
   z-index: 10;
 }
 
-/* ========== END PROJECTS SECTION STYLES ========== */
-.hero-title-block {
-  display: inline-block;
-}
+/* ========== RESPONSIVE MEDIA QUERIES ========== */
 
-.job-title {
-  font-size: 2.6rem;
-  margin-top: 10px;
-  color: #fff;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideUpSmooth 1s ease-out forwards;
-  animation-delay: 0.2s;   /* appears much faster */
-}
+/* ===================================
+   MEDIA QUERY: 0px - 480px
+   Extra Small Mobile Devices
+   =================================== */
 
-@keyframes slideUpSmooth {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+@media (max-width: 480px) {
+  /* Hero Section */
+  .home-hero-section {
+    padding: 6rem 1rem 2rem;
+    min-height: 100vh;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .hero-content-wrapper {
+    flex-direction: column;
+  }
+
+  .greeting {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .hero-main-text {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  .hero-lanyard {
+    height: 300px;
+  }
+
+  /* Background Circles */
+  .bg-circle-1 { width: 200px; height: 200px; top: -50px; left: -50px; }
+  .bg-circle-2 { width: 150px; height: 150px; bottom: 30px; right: -30px; }
+  .bg-circle-3 { width: 120px; height: 120px; top: 30%; right: -30px; }
+  .bg-circle-4 { width: 100px; height: 100px; bottom: 50px; left: 10%; }
+
+  .mouse-follower {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* About Section */
+  .home-about-section {
+    padding: 3rem 1rem;
+  }
+
+  .home-about-container {
+    padding: 0 1rem;
+  }
+
+  .home-about-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .home-about-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-right: 0;
+  }
+
+  .home-about-bottom {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .home-about-bottom-left {
+    justify-content: center;
+  }
+
+  .home-about-image {
+    width: 100%;
+    max-width: 300px;
+    margin-left: 0;
+  }
+
+  .home-about-bottom-right {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .home-about-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .home-about-buttons {
+    align-items: center;
+  }
+
+  .home-about-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  /* Projects Section */
+  .story-wrapper {
+    padding: 2rem 0;
+  }
+
+  .story-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .story-section {
+    min-height: auto;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+  }
+
+  .sticky-block {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .image-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .sticky-image {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px;
+  }
+
+  .story-text {
+    color: #ffffff;
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    transform: none;
+  }
+
+  .story-text p {
+    
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: center;
   }
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .hero-content-wrapper { grid-template-columns: 1fr; gap: 2rem; }
-  .hero-content { padding-left: 0; text-align: center; }
-  .hero-lanyard { height: 500px; }
+/* ===================================
+   MEDIA QUERY: 481px - 768px
+   Small Tablets & Large Phones
+   =================================== */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Hero Section */
+  .home-hero-section {
+    padding: 7rem 2rem 3rem;
+  }
+
+  .greeting {
+    font-size: 2rem;
+  }
+
+  .hero-main-text {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+
+  .hero-lanyard {
+    height: 400px;
+  }
+
+  /* Background Circles */
+  .bg-circle-1 { width: 250px; height: 250px; }
+  .bg-circle-2 { width: 180px; height: 180px; }
+  .bg-circle-3 { width: 150px; height: 150px; }
+  .bg-circle-4 { width: 130px; height: 130px; }
+
+  .mouse-follower {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* About Section */
+  .home-about-section {
+    padding: 4rem 2rem;
+  }
+
+  .home-about-container {
+    padding: 0 1.5rem;
+  }
+
+  .home-about-heading {
+    font-size: 3rem;
+  }
+
+  .home-about-text {
+    font-size: 1.1rem;
+    margin-right: 0;
+  }
+
+  .home-about-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .home-about-bottom-left {
+    justify-content: center;
+  }
+
+  .home-about-image {
+    max-width: 350px;
+    margin-left: 0;
+  }
+
+  .home-about-bottom-right {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .home-about-description {
+    font-size: 1.05rem;
+  }
+
+  .home-about-buttons {
+    align-items: center;
+  }
+
+  .home-about-btn {
+    font-size: 1rem;
+    padding: 0.9rem 1.8rem;
+  }
+
+  /* Projects */
+  .story-wrapper {
+    padding: 3rem 0;
+  }
+
+  .story-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .story-section {
+    margin-bottom: 5rem;
+    padding: 0 1.5rem;
+  }
+
+  .sticky-block {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .image-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .sticky-image {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .story-text {
+    position: relative;
+    width: 100%;
+    right: auto;
+    top: auto;
+    transform: none;
+  }
+
+  .story-text p {
+    font-size: 1.05rem;
+    text-align: center;
+  }
 }
 
-@media (max-width: 768px) {
-  .home-about-bottom { grid-template-columns: 1fr; }
-  .home-about-bottom-right { padding-left: 0; text-align: center; }
-  .home-about-buttons { align-items: center; }
+/* ===================================
+   MEDIA QUERY: 769px - 1024px
+   Tablets & Small Laptops
+   =================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Hero Section */
+  .home-hero-section {
+    padding: 8rem 3rem 4rem;
+  }
+
+  .greeting {
+    font-size: 2.5rem;
+  }
+
+  .hero-main-text {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .hero-lanyard {
+    height: 500px;
+  }
+
+  /* Background Circles */
+  .bg-circle-1 { width: 300px; height: 300px; }
+  .bg-circle-2 { width: 220px; height: 220px; }
+  .bg-circle-3 { width: 180px; height: 180px; }
+  .bg-circle-4 { width: 150px; height: 150px; }
+
+  .mouse-follower {
+    width: 250px;
+    height: 250px;
+  }
+
+  /* About Section */
+  .home-about-section {
+    padding: 5rem 3rem;
+  }
+
+  .home-about-heading {
+    font-size: 4rem;
+  }
+
+  .home-about-text {
+    font-size: 1.25rem;
+    margin-right: 5%;
+  }
+
+  .home-about-bottom {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .home-about-bottom-left {
+    justify-content: flex-start;
+  }
+
+  .home-about-image {
+    width: 320px;
+    margin-left: 5%;
+  }
+
+  .home-about-bottom-right {
+    padding-left: 1rem;
+    text-align: left;
+  }
+
+  .home-about-description {
+    font-size: 1.2rem;
+  }
+
+  .home-about-buttons {
+    align-items: flex-start;
+  }
+
+  .home-about-btn {
+    width: fit-content;
+  }
+
+  /* Projects */
+  .story-wrapper {
+    padding: 4rem 0;
+  }
+
+  .story-title {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .story-section {
+    min-height: 60vh;
+    margin-bottom: 8rem;
+    padding: 0 2rem;
+  }
+
+  .sticky-block {
+    position: sticky;
+    top: 80px;
+    left: 3%;
+    width: 45%;
+  }
+
+  .image-title {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .sticky-image {
+    width: 90% !important;
+    height: 300px !important;
+    object-fit: cover;
+  }
+
+  .story-text {
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    width: 45%;
+    transform: translateY(-20%);
+  }
+
+  .story-text p {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+}
+
+/* ===================================
+   MEDIA QUERY: 1025px - 1440px
+   Desktops & Laptops
+   =================================== */
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  /* Hero Section */
+  .home-hero-section {
+    padding: 8rem 4rem 4rem;
+  }
+
+  .greeting {
+    font-size: 3rem;
+  }
+
+  .hero-main-text {
+    font-size: 4.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+
+  /* About Section */
+  .home-about-section {
+    padding: 0rem;
+  }
+
+  .home-about-container {
+    max-width: 1400px;
+  }
+
+  .home-about-heading {
+    font-size: 5rem;
+  }
+
+  .home-about-text {
+    font-size: 1.5rem;
+    margin-right: 10%;
+  }
+
+  .home-about-bottom {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .home-about-bottom-left {
+    justify-content: flex-start;
+  }
+
+  .home-about-image {
+    width: 360px;
+    margin-left: 10%;
+  }
+
+  .home-about-bottom-right {
+    padding-left: 1rem;
+    text-align: left;
+  }
+
+  .home-about-description {
+    font-size: 1.4rem;
+  }
+
+  .home-about-buttons {
+    align-items: flex-start;
+  }
+
+  /* Projects */
+  .story-title {
+    font-size: 52px;
+    margin-bottom: 60px;
+  }
+
+  .story-section {
+    min-height: 70vh;
+    margin-bottom: 10px;
+  }
+
+  .sticky-block {
+    position: sticky;
+    top: 100px;
+    left: 6%;
+    width: 38%;
+  }
+
+  .image-title {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .sticky-image {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .story-text {
+    position: absolute;
+    right: 6%;
+    top: 10%;
+    width: 42%;
+    transform: translateY(-40%);
+  }
+
+  .story-text p {
+    font-size: 20px;
+    text-align: left;
+  }
+}
+
+/* ===================================
+   MEDIA QUERY: 1441px and above
+   Large Desktops & 4K Screens
+   =================================== */
+
+@media (min-width: 1441px) {
+  /* Hero Section */
+  .home-hero-section {
+    padding: 8rem 6rem 4rem;
+  }
+
+  .greeting {
+    font-size: 3.5rem;
+  }
+
+  .hero-main-text {
+    font-size: 5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+
+  .hero-lanyard {
+    height: 700px;
+  }
+
+  /* About Section */
+  .home-about-section {
+    padding: 0rem;
+  }
+
+  .home-about-container {
+    max-width: 1400px;
+  }
+
+  .home-about-heading {
+    font-size: 5.5rem;
+  }
+
+  .home-about-text {
+    font-size: 1.6rem;
+    margin-right: 10%;
+  }
+
+  .home-about-image {
+    width: 400px;
+    margin-left: 10%;
+  }
+
+  .home-about-description {
+    font-size: 1.5rem;
+  }
+
+  /* Projects */
+  .story-title {
+    font-size: 60px;
+  }
+
+  .sticky-block {
+    left: 6%;
+    width: 38%;
+  }
+
+  .image-title {
+    font-size: 35px;
+    text-align: left;
+  }
+
+  .story-text {
+    right: 6%;
+    width: 42%;
+  }
+
+  .story-text p {
+    font-size: 22px;
+    text-align: left;
+  }
+}
+
+/* ===================================
+   LANDSCAPE ORIENTATION
+   =================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .home-hero-section {
+    min-height: auto;
+    padding: 4rem 2rem 2rem;
+  }
+
+  .greeting {
+    font-size: 1.8rem;
+  }
+
+  .hero-main-text {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-lanyard {
+    height: 250px;
+  }
+
+  .home-about-section {
+    padding: 2rem;
+  }
+
+  .story-section {
+    min-height: auto;
+  }
+}
+
+/* ===================================
+   ULTRA WIDE SCREENS (21:9)
+   =================================== */
+
+@media (min-width: 2560px) {
+  .home-about-container {
+    max-width: 2000px;
+  }
+
+  .greeting {
+    font-size: 4rem;
+  }
+
+  .hero-main-text {
+    font-size: 5.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2.5rem;
+  }
+
+  .home-about-heading {
+    font-size: 6rem;
+  }
+
+  .story-title {
+    font-size: 70px;
+  }
 }

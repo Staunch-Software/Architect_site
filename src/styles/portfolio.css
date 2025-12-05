@@ -1,15 +1,14 @@
 /* --- portfolio.css --- */
-.body{
-  background-color: black;
-}
+/* body{
+  background-color: #000000;
+} */
 
 .portfolio-container {
-  max-width: 18500px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 60px 40px;
-  background-color: #000;
+  background-color: black;
   min-height: 100vh;
-  width: 100%;
 }
 
 /* 
@@ -28,13 +27,14 @@
   font-size: 3.5rem;
   font-weight: 500;
   margin-bottom: 20px;
-  color: white;
+  margin-top: 70px;
+  color:white;
   letter-spacing: -1px;
 }
 
 .portfolio-subtitle {
   font-size: 1.1rem;
-  color:white;
+  color: white;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -44,8 +44,11 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-  padding-right: 85px;
+  width: 90%;
+  height: auto;
+  margin-left: 80px;
 }
+
 
 /* 
    --- SCROLL REVEAL ANIMATION ---
@@ -68,6 +71,7 @@
   border-radius: 0px; /* Wix uses sharp corners. Change to 12px for rounded. */
   overflow: hidden;
   cursor: pointer;
+  border-radius: 18px;
   
   /* Initial State: Hidden */
   opacity: 0; 
@@ -186,186 +190,5 @@
   
   .card-image-wrapper {
     height: 300px;
-  }
-}
-
-
-@media (max-width: 359px) {
-  .about-page-container {
-    flex-direction: column;
-    width: 92%;
-    gap: 35px;
-  }
-
-  .about-images-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .pixel-card {
-    height: 220px;
-  }
-
-  .about-page-text p {
-    font-size: 14px;
-  }
-
-  .exp-container {
-    grid-template-columns: 1fr;
-  }
-
-  .exp-row {
-    flex-direction: column;
-  }
-}
-
-
-@media (min-width: 360px) and (max-width: 480px) {
-  .about-page-container {
-    flex-direction: column;
-    width: 90%;
-    gap: 40px;
-  }
-
-  .about-images-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pixel-card {
-    height: 250px;
-  }
-
-  .exp-row {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-
-@media (min-width: 481px) and (max-width: 600px) {
-  .about-page-container {
-    flex-direction: column;
-    width: 88%;
-  }
-
-  .about-images-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .pixel-card {
-    height: 280px;
-  }
-}
-
-
-@media (min-width: 601px) and (max-width: 767px) {
-  .about-page-container {
-    flex-direction: column;
-    width: 90%;
-    gap: 50px;
-  }
-
-  .about-images-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .pixel-card {
-    height: 240px;
-  }
-
-  .exp-container {
-    grid-template-columns: 1fr;
-  }
-
-  .exp-left-col {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-
-@media (min-width: 768px) and (max-width: 900px) {
-  .about-page-container {
-    flex-direction: column;
-    width: 90%;
-    gap: 60px;
-  }
-
-  .about-images-grid {
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .pixel-card {
-    height: 260px;
-  }
-}
-
-
-@media (min-width: 901px) and (max-width: 1024px) {
-  .about-page-container {
-    width: 90%;
-  }
-
-  .about-images-grid {
-    width: 60%;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-page-text {
-    width: 80%;
-  }
-}
-
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .about-page-container {
-    width: 88%;
-    gap: 45px;
-  }
-
-  .about-images-grid {
-    width: 45%;
-  }
-
-  .about-page-text {
-    width: 50%;
-  }
-}
-
-
-@media (min-width: 1281px) and (max-width: 1440px) {
-  .about-page-container {
-    width: 80%;
-  }
-}
-
-
-@media (min-width: 1441px) and (max-width: 1600px) {
-  .about-page-container {
-    width: 75%;
-  }
-}
-
-
-@media (min-width: 1601px) and (max-width: 1920px) {
-  .about-page-container {
-    width: 70%;
-  }
-}
-
-
-@media (min-width: 1921px) and (max-width: 2560px) {
-  .about-page-container {
-    width: 60%;
-  }
-}
-
-
-@media (min-width: 2561px) {
-  .about-page-container {
-    width: 50%;
   }
 }

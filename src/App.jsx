@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Designprocess from './components/Designprocess';
+import ScrollToTop from './components/ScrollToTop';
 
 // Import Main Components
 import Layout from './components/Layout';
@@ -19,6 +20,7 @@ import ConcreteBench from './components/Concrete';
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop/>
     <CursorGlow />
       <Routes>
         <Route path="/" element={<Layout />}>
